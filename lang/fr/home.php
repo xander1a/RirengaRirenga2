@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'hero_title'    => 'Évadez-vous dans les Bras de la Nature',
+    'hero_subtitle' => 'Un éco-lodge durable au cœur du Rwanda — où forêt, confort et culture se rencontrent.',
+    'hero_cta'      => 'Réserver votre Séjour',
+    'intro_title'   => 'Bienvenue à BYIZA Eco-lodge',
+    'intro_body'    => 'Niché dans les collines luxuriantes du Rwanda, BYIZA Eco-lodge offre cinq chambres magnifiques, un restaurant réputé et un bar animé — dans un cadre qui honore la terre et ses habitants.',
+    'rooms_title'   => 'Nos Chambres',
+    'rooms_sub'     => 'Chaque chambre comprend le dîner et le petit-déjeuner, et est votre sanctuaire privé dans la forêt.',
+    'amenities_title'    => 'Ce Que Nous Offrons',
+    'amenity_stay'       => 'Hébergement',
+    'amenity_food'       => 'Nourriture & Boissons',
+    'amenity_hike'       => 'Randonnées',
+    'restaurant_title'   => 'Cuisine de la Ferme à la Table',
+    'restaurant_body'    => 'Notre chef célèbre les ingrédients rwandais avec un menu saisonnier alliant tradition locale et technique contemporaine.',
+    'bar_title'          => 'Le Bar BYIZA',
+    'bar_body'           => 'Cocktails signature, bières locales, vins sélectionnés — et des événements live réguliers sous les étoiles.',
+    'testimonials_title' => 'Ce que Disent Nos Hôtes',
+    'cta_title'          => 'Prêt pour une Escapade Inoubliable ?',
+    'cta_body'           => 'Réservez directement et profitez des meilleurs tarifs disponibles. Toutes les chambres incluent dîner & petit-déjeuner.',
+    'cta_button'         => 'Réserver une Chambre',
+    'blog_title'         => 'Du Lodge',
+    'read_more'          => 'Lire la Suite',
+];

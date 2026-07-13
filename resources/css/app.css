@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* Brand Colors */
+    --color-forest: #2E4636;
+    --color-sage: #6E8C5A;
+    --color-terracotta: #BF6B47;
+    --color-sand: #F1E9D7;
+    --color-gold: #C9A24B;
+    --color-charcoal: #2B2A28;
+
+    /* Fonts */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base styles */
+body {
+    background-color: var(--color-sand);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+}
+
+[x-cloak] { display: none !important; }
+
+/* Scroll-reveal */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subtle icon-tile pattern background */
+.icon-tile {
+    position: relative;
+    overflow: hidden;
+}
+.icon-tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 16px 16px;
+    opacity: 0.08;
+}
+
+/* Slim, brand-colored scrollbars for admin panel */
+.admin-scroll,
+.admin-main {
+    scrollbar-width: thin;
+    scrollbar-color: #6E8C5A40 transparent;
+}
+.admin-scroll::-webkit-scrollbar,
+.admin-main::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.admin-scroll::-webkit-scrollbar-track,
+.admin-main::-webkit-scrollbar-track {
+    background: transparent;
+}
+.admin-scroll::-webkit-scrollbar-thumb,
+.admin-main::-webkit-scrollbar-thumb {
+    background-color: #6E8C5A40;
+    border-radius: 999px;
+}
+.admin-scroll::-webkit-scrollbar-thumb:hover,
+.admin-main::-webkit-scrollbar-thumb:hover {
+    background-color: #6E8C5A80;
+}
+.admin-scroll::-webkit-scrollbar-button,
+.admin-main::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Sidebar scrollbar — track matches the forest sidebar background so it blends in */
+.sidebar-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #C9A24B66 #2E4636;
+}
+.sidebar-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+    background-color: #2E4636;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: #C9A24B66;
+    border-radius: 999px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #C9A24B99;
+}
+.sidebar-scroll::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
