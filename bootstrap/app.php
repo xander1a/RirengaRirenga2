@@ -4,7 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
-return Application::configure(basePath: dirname(__DIR__))
+$app = Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
@@ -30,3 +30,12 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->with('error', 'Your session expired — please try again.');
         });
     })->create();
+
+// On shared hosting the web-served folder is public_html, not <project>/public.
+// Set APP_PUBLIC_PATH in the server's .env so Vite manifests, uploads, and
+// asset URLs all resolve against the real document root.
+if ($publicPath = env('APP_PUBLIC_PATH')) {
+    $app->usePublicPath($publicPath);
+}
+
+return $app;
