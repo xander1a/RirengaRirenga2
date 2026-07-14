@@ -31,10 +31,14 @@ $app = Application::configure(basePath: dirname(__DIR__))
         });
     })->create();
 
-// On shared hosting the web-served folder is public_html, not <project>/public.
-// Set APP_PUBLIC_PATH in the server's .env so Vite manifests, uploads, and
-// asset URLs all resolve against the real document root.
-if ($publicPath = env('APP_PUBLIC_PATH')) {
+// On shared hosting (cPanel) the web-served folder is public_html, not
+// <project>/public. Use APP_PUBLIC_PATH from .env when set; otherwise
+// auto-detect the cPanel layout where the project sits inside public_html.
+$publicPath = env('APP_PUBLIC_PATH');
+if (! $publicPath && basename(dirname(__DIR__, 2)) === 'public_html') {
+    $publicPath = dirname(__DIR__, 2);
+}
+if ($publicPath) {
     $app->usePublicPath($publicPath);
 }
 
