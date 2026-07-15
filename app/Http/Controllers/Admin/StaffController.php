@@ -38,9 +38,37 @@ class StaffController extends Controller
         return redirect()->back()->with('success', 'Staff member created.');
     }
 
+    public function update(Request $request, User $user)
+    {
+        abort_if($user->hasRole('director'), 403, 'Directors cannot be edited here.');
+
+        $data = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email,'.$user->id,
+            'phone'    => 'nullable|string|max:30',
+            'role'     => 'required|in:manager,staff',
+            'password' => 'nullable|min:8',
+        ]);
+
+        $user->update([
+            'name'  => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
+        ]);
+
+        if (! empty($data['password'])) {
+            $user->update(['password' => Hash::make($data['password'])]);
+        }
+
+        $user->syncRoles([$data['role']]);
+
+        return redirect()->back()->with('success', 'Staff member updated.');
+    }
+
     public function destroy(User $user)
     {
         abort_if($user->hasRole('director'), 403, 'Cannot delete a director.');
+        abort_if($user->id === auth()->id(), 403, 'You cannot delete your own account.');
         $user->delete();
         return redirect()->back()->with('success', 'Staff member removed.');
     }

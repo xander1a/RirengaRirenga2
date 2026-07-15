@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookingStatusMail;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class BookingAdminController extends Controller
 {
@@ -38,9 +41,23 @@ class BookingAdminController extends Controller
 
     public function updateStatus(Request $request, Booking $booking)
     {
-        $request->validate(['status' => 'required|in:pending,confirmed,cancelled,checked_in,checked_out']);
-        $booking->update(['status' => $request->status]);
-        return redirect()->back()->with('success', 'Booking status updated.');
+        $request->validate([
+            'status' => 'required|in:pending,confirmed,cancelled,checked_in,checked_out',
+            'reason' => 'nullable|string|max:1000|required_if:status,cancelled',
+        ], [
+            'reason.required_if' => 'Please give the guest a reason when declining a booking.',
+        ]);
+
+        $booking->update([
+            'status'        => $request->status,
+            'status_reason' => $request->reason,
+            'confirmed_at'  => $request->status === 'confirmed' ? now() : $booking->confirmed_at,
+            'cancelled_at'  => $request->status === 'cancelled' ? now() : $booking->cancelled_at,
+        ]);
+
+        $this->notifyGuest($booking);
+
+        return redirect()->back()->with('success', 'Booking status updated and the guest has been emailed.');
     }
 
     public function confirmPayment(Booking $booking)
@@ -50,7 +67,27 @@ class BookingAdminController extends Controller
             'status'         => 'confirmed',
             'confirmed_at'   => now(),
         ]);
-        return redirect()->back()->with('success', 'Payment manually confirmed.');
+
+        $this->notifyGuest($booking);
+
+        return redirect()->back()->with('success', 'Payment manually confirmed and the guest has been emailed.');
+    }
+
+    /**
+     * Email the guest about their booking status; never let a mail failure
+     * block the admin action.
+     */
+    private function notifyGuest(Booking $booking): void
+    {
+        if (! in_array($booking->status, ['confirmed', 'cancelled']) || ! $booking->guest_email) {
+            return;
+        }
+
+        try {
+            Mail::to($booking->guest_email)->send(new BookingStatusMail($booking->fresh('room.roomType')));
+        } catch (\Throwable $e) {
+            Log::warning('Booking status email failed: '.$e->getMessage(), ['booking' => $booking->reference]);
+        }
     }
 
     public function export(Request $request)

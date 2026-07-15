@@ -21,7 +21,7 @@
                     <div>
                         <div class="flex gap-2 items-center mb-2">
                             <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:#F1E9D7;color:#6E8C5A;">{{ $b->reference }}</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full capitalize {{ $b->status==='confirmed'?'bg-green-100 text-green-700':($b->status==='cancelled'?'bg-red-100 text-red-700':'bg-yellow-100 text-yellow-700') }}">{{ $b->status }}</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full capitalize {{ $b->status==='confirmed'?'bg-green-100 text-green-700':($b->status==='cancelled'?'bg-red-100 text-red-700':'bg-yellow-100 text-yellow-700') }}">{{ $b->status === 'cancelled' ? 'declined' : $b->status }}</span>
                         </div>
                         <p class="font-semibold" style="color:#2E4636;">{{ $b->room->roomType->name ?? 'Room' }}</p>
                         <p class="text-sm text-gray-500">{{ $b->check_in->format('d M Y') }} → {{ $b->check_out->format('d M Y') }} ({{ $b->nights }} nights)</p>

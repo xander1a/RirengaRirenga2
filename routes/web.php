@@ -189,6 +189,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:director|manag
     Route::prefix('staff')->name('staff.')->middleware('role:director')->group(function () {
         Route::get('/', [Admin\StaffController::class, 'index'])->name('index');
         Route::post('/', [Admin\StaffController::class, 'store'])->name('store');
+        Route::put('/{user}', [Admin\StaffController::class, 'update'])->name('update');
         Route::delete('/{user}', [Admin\StaffController::class, 'destroy'])->name('destroy');
     });
 });

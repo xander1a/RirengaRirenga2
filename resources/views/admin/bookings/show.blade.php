@@ -48,17 +48,40 @@
             @endif
         </div>
 
+        @if($booking->status_reason)
+        <div class="mt-6 px-4 py-3 rounded-xl text-sm" style="background:#F9F6EF;border-left:4px solid #C9A24B;">
+            <span class="font-semibold text-gray-700">Reason sent to guest:</span>
+            <span class="text-gray-600">{{ $booking->status_reason }}</span>
+        </div>
+        @endif
+
         {{-- Actions --}}
-        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
-            <form action="{{ route('admin.bookings.status', $booking) }}" method="POST" class="flex gap-2">
+        <div class="mt-8 pt-6 border-t border-gray-100">
+            <form action="{{ route('admin.bookings.status', $booking) }}" method="POST"
+                  x-data="{ status: '{{ $booking->status }}' }" class="space-y-3">
                 @csrf
-                <select name="status" class="rounded-xl border border-gray-200 px-3 py-2 min-h-[44px] text-sm">
-                    @foreach(['pending','confirmed','checked_in','checked_out','cancelled'] as $s)
-                    <option value="{{ $s }}" {{ $booking->status===$s?'selected':'' }}>{{ ucfirst(str_replace('_',' ',$s)) }}</option>
-                    @endforeach
-                </select>
-                <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Update Status</button>
+                <div class="flex flex-wrap gap-2">
+                    <select name="status" x-model="status" class="rounded-xl border border-gray-200 px-3 py-2 min-h-[44px] text-sm">
+                        @foreach(['pending','confirmed','checked_in','checked_out','cancelled'] as $s)
+                        <option value="{{ $s }}" {{ $booking->status===$s?'selected':'' }}>{{ $s === 'cancelled' ? 'Declined / Cancelled' : ucfirst(str_replace('_',' ',$s)) }}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Update Status</button>
+                </div>
+                <div x-show="status === 'cancelled' || status === 'confirmed'" x-transition>
+                    <label class="block text-xs text-gray-500 mb-1">
+                        <span x-show="status === 'cancelled'">Reason for declining (required — emailed to the guest)</span>
+                        <span x-show="status === 'confirmed'">Message to the guest (optional — included in the confirmation email)</span>
+                    </label>
+                    <textarea name="reason" rows="2" x-bind:required="status === 'cancelled'"
+                              class="w-full max-w-xl rounded-xl border border-gray-200 px-3 py-2 text-sm"
+                              placeholder="e.g. The room is unavailable for those dates due to maintenance.">{{ old('reason') }}</textarea>
+                </div>
+                <p class="text-xs text-gray-400">The guest is automatically emailed when you confirm or decline.</p>
             </form>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-3">
 
             @if(!in_array($booking->payment_status, ['paid','manual_confirmed']))
             <form action="{{ route('admin.bookings.confirm-payment', $booking) }}" method="POST">

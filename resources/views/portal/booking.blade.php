@@ -11,9 +11,28 @@
                     <p class="text-sm text-gray-400 mt-1">Booked {{ $booking->created_at->format('d M Y') }}</p>
                 </div>
                 <span class="px-3 py-1 rounded-full text-sm font-semibold capitalize {{ $booking->status==='confirmed'?'bg-green-100 text-green-700':($booking->status==='cancelled'?'bg-red-100 text-red-700':'bg-yellow-100 text-yellow-700') }}">
-                    {{ $booking->status }}
+                    {{ $booking->status === 'cancelled' ? 'declined' : $booking->status }}
                 </span>
             </div>
+
+            @if($booking->status === 'confirmed')
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#6E8C5A15;border:1px solid #6E8C5A40;color:#2E4636;">
+                Your booking is confirmed — we look forward to welcoming you!
+                @if($booking->status_reason)<div class="mt-1 text-gray-600">{{ $booking->status_reason }}</div>@endif
+            </div>
+            @elseif($booking->status === 'cancelled')
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#BF6B4712;border:1px solid #BF6B4740;color:#BF6B47;">
+                <p class="font-semibold">This booking was declined.</p>
+                @if($booking->status_reason)
+                <p class="mt-1 text-gray-600"><span class="font-medium">Reason:</span> {{ $booking->status_reason }}</p>
+                @endif
+                <p class="mt-1 text-gray-500">A copy of this was sent to your email. Contact us if you have questions.</p>
+            </div>
+            @elseif($booking->status === 'pending')
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#C9A24B12;border:1px solid #C9A24B40;color:#a9852f;">
+                Your booking is awaiting confirmation — we'll email you as soon as it's reviewed.
+            </div>
+            @endif
             <div class="space-y-3 text-sm">
                 @foreach([
                     ['Room', $booking->room->roomType->name.' — '.$booking->room->name],

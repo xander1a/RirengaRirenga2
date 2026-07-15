@@ -10,7 +10,7 @@ class Booking extends Model
     protected $fillable = [
         'reference', 'user_id', 'room_id', 'check_in', 'check_out',
         'guests', 'guest_name', 'guest_email', 'guest_phone',
-        'price_per_night', 'total_amount', 'status', 'payment_status',
+        'price_per_night', 'total_amount', 'status', 'status_reason', 'payment_status',
         'payment_method', 'payment_reference', 'special_requests', 'notes',
         'confirmed_at', 'cancelled_at',
     ];

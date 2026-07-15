@@ -51,15 +51,45 @@
                 <td class="px-5 py-3 text-gray-400">{{ $member->created_at->format('d M Y') }}</td>
                 <td class="px-5 py-3">
                     @if(!$member->hasRole('director'))
-                    <form action="{{ route('admin.staff.destroy', $member) }}" method="POST">
-                        @csrf @method('DELETE')
-                        <button type="button"
-                                @click="$dispatch('confirm-action', { form: $el.closest('form'), title: 'Remove staff member?', message: '\'{{ addslashes($member->name) }}\' will lose access immediately.' })"
-                                class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-red-500 hover:bg-red-50 hover:text-red-700 transition"
-                                aria-label="Remove {{ $member->name }}">
-                            <x-admin-icon name="trash" class="w-4 h-4" />
+                    <div class="relative flex items-center gap-1 justify-end" x-data="{ editing: false }">
+                        <button @click="editing = !editing"
+                                class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
+                                aria-label="Edit {{ $member->name }}">
+                            <x-admin-icon name="pencil" class="w-4 h-4" />
                         </button>
-                    </form>
+                        <form action="{{ route('admin.staff.destroy', $member) }}" method="POST">
+                            @csrf @method('DELETE')
+                            <button type="button"
+                                    @click="$dispatch('confirm-action', { form: $el.closest('form'), title: 'Remove staff member?', message: '\'{{ addslashes($member->name) }}\' will lose access immediately.' })"
+                                    class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-red-500 hover:bg-red-50 hover:text-red-700 transition"
+                                    aria-label="Remove {{ $member->name }}">
+                                <x-admin-icon name="trash" class="w-4 h-4" />
+                            </button>
+                        </form>
+
+                        {{-- Edit panel --}}
+                        <div x-show="editing" x-cloak x-transition @click.outside="editing = false"
+                             class="absolute right-8 z-20 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-100 p-4 text-left">
+                            <h4 class="text-sm font-semibold mb-3" style="color:#2E4636;">Edit {{ $member->name }}</h4>
+                            <form action="{{ route('admin.staff.update', $member) }}" method="POST" class="space-y-3">
+                                @csrf @method('PUT')
+                                <div><label class="block text-xs mb-1">Name</label>
+                                    <input type="text" name="name" value="{{ $member->name }}" required class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
+                                <div><label class="block text-xs mb-1">Email</label>
+                                    <input type="email" name="email" value="{{ $member->email }}" required class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
+                                <div><label class="block text-xs mb-1">Phone</label>
+                                    <input type="tel" name="phone" value="{{ $member->phone }}" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
+                                <div><label class="block text-xs mb-1">Role</label>
+                                    <select name="role" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm">
+                                        <option value="manager" {{ $member->hasRole('manager')?'selected':'' }}>Manager</option>
+                                        <option value="staff" {{ $member->hasRole('staff')?'selected':'' }}>Staff</option>
+                                    </select></div>
+                                <div><label class="block text-xs mb-1">New Password <span class="text-gray-400">(leave blank to keep)</span></label>
+                                    <input type="password" name="password" minlength="8" autocomplete="new-password" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
+                                <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#2E4636;">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
                     @endif
                 </td>
             </tr>
