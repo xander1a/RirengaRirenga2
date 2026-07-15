@@ -10,11 +10,21 @@ use Spatie\Permission\Models\Role;
 
 class StaffController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $staff = User::role(['director', 'manager', 'staff'])->with('roles')->get();
         $roles = Role::whereIn('name', ['manager', 'staff'])->get();
-        return view('admin.staff.index', compact('staff', 'roles'));
+
+        $customers = User::with('roles')
+            ->whereDoesntHave('roles', fn ($q) => $q->whereIn('name', ['director', 'manager', 'staff']))
+            ->when($request->input('search'), function ($q, $search) {
+                $q->where(fn ($qq) => $qq->where('name', 'like', "%$search%")->orWhere('email', 'like', "%$search%"));
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
+
+        return view('admin.staff.index', compact('staff', 'roles', 'customers'));
     }
 
     public function store(Request $request)
@@ -46,7 +56,7 @@ class StaffController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email,'.$user->id,
             'phone'    => 'nullable|string|max:30',
-            'role'     => 'required|in:manager,staff',
+            'role'     => 'required|in:manager,staff,customer',
             'password' => 'nullable|min:8',
         ]);
 
