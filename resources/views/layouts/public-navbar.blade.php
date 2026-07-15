@@ -51,24 +51,43 @@
                 </div>
 
                 @auth
-                    @if(auth()->user()->hasRole(['director','manager','staff']))
-                        <a href="{{ route('admin.dashboard') }}" title="{{ __('nav.admin') }}"
-                           class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/5 transition">
-                            <x-admin-icon name="dashboard" class="w-3.5 h-3.5" /> {{ __('nav.admin') }}
-                        </a>
-                    @else
-                        <a href="{{ route('portal.dashboard') }}"
-                           class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/5 transition">
-                            <x-admin-icon name="users" class="w-3.5 h-3.5" /> {{ __('nav.my_account') }}
-                        </a>
-                    @endif
-                    <form method="POST" action="{{ route('logout') }}" class="inline">
-                        @csrf
-                        <button type="submit" title="{{ __('nav.logout') }}" aria-label="{{ __('nav.logout') }}"
-                                class="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/5 transition">
-                            <x-admin-icon name="logout" class="w-4 h-4" />
+                    <div class="relative" x-data="{ userMenu: false }" @keydown.escape.window="userMenu = false">
+                        <button @click="userMenu = !userMenu"
+                                class="flex items-center gap-1.5 pl-1 pr-2 py-1 rounded-full transition hover:bg-white/10"
+                                :class="userMenu ? 'bg-white/10' : ''" :aria-expanded="userMenu">
+                            <span class="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style="background:#6E8C5A;">
+                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                            </span>
+                            <span class="text-white font-medium max-w-[110px] truncate">{{ Str::before(auth()->user()->name, ' ') }}</span>
+                            <x-admin-icon name="chevron-right" class="w-3 h-3 text-white/50 rotate-90 transition" x-bind:class="userMenu ? '-rotate-90' : 'rotate-90'" />
                         </button>
-                    </form>
+
+                        <div x-show="userMenu" x-cloak @click.outside="userMenu = false"
+                             x-transition:enter="transition ease-out duration-150"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 text-gray-700 text-sm">
+                            <div class="px-4 py-2 border-b border-gray-100 mb-1">
+                                <p class="font-semibold text-gray-800 truncate">{{ auth()->user()->name }}</p>
+                                <p class="text-xs text-gray-400 truncate">{{ auth()->user()->email }}</p>
+                            </div>
+                            @if(auth()->user()->hasRole(['director','manager','staff']))
+                            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50">
+                                <x-admin-icon name="dashboard" class="w-4 h-4 text-gray-400" /> {{ __('nav.admin') }}
+                            </a>
+                            @else
+                            <a href="{{ route('portal.dashboard') }}" class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50">
+                                <x-admin-icon name="users" class="w-4 h-4 text-gray-400" /> {{ __('nav.my_account') }}
+                            </a>
+                            @endif
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="flex items-center gap-2.5 px-4 py-2.5 w-full text-left text-red-600 hover:bg-red-50">
+                                    <x-admin-icon name="logout" class="w-4 h-4" /> {{ __('nav.logout') }}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 @else
                     <a href="{{ route('login') }}" class="px-2 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/5 transition">{{ __('nav.login') }}</a>
                 @endauth
@@ -133,6 +152,15 @@
             </div>
 
             @auth
+                <div class="flex items-center gap-2.5 px-2 py-2">
+                    <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0" style="background:#6E8C5A;">
+                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                    </span>
+                    <div class="min-w-0">
+                        <p class="text-sm font-semibold text-white truncate">{{ auth()->user()->name }}</p>
+                        <p class="text-[11px] text-white/50 truncate">{{ auth()->user()->email }}</p>
+                    </div>
+                </div>
                 @if(auth()->user()->hasRole(['director','manager','staff']))
                     <a href="{{ route('admin.dashboard') }}" @click="open=false" class="flex items-center gap-2.5 px-2 py-2 min-h-[40px] text-sm text-white/70 hover:text-white">
                         <x-admin-icon name="dashboard" class="w-4 h-4" /> {{ __('nav.admin') }}
