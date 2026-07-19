@@ -52,7 +52,7 @@
                     <td class="px-5 py-3 text-gray-600">{{ $b->room->roomType->name ?? '—' }}</td>
                     <td class="px-5 py-3 text-gray-600">{{ $b->check_in->format('d M Y') }}</td>
                     <td class="px-5 py-3 text-gray-600">{{ $b->check_out->format('d M Y') }}</td>
-                    <td class="px-5 py-3 font-semibold">{{ frw($b->total_amount, 2) }}</td>
+                    <td class="px-5 py-3 font-semibold">{{ money($b->total_amount, $b->currency) }}</td>
                     <td class="px-5 py-3">
                         <span class="px-2 py-0.5 rounded-full text-xs font-semibold capitalize {{ $b->status==='confirmed'?'bg-green-100 text-green-700':($b->status==='pending'?'bg-yellow-100 text-yellow-700':($b->status==='cancelled'?'bg-red-100 text-red-700':'bg-blue-100 text-blue-700')) }}">
                             {{ $b->status }}

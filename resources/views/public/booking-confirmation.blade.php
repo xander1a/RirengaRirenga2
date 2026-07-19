@@ -41,7 +41,7 @@
                 </div>
                 <div class="flex justify-between py-2 border-b border-gray-100">
                     <span class="text-gray-500">Total Amount</span>
-                    <span class="font-bold text-base" style="color:#C9A24B;">{{ frw($booking->total_amount, 2) }}</span>
+                    <span class="font-bold text-base" style="color:#C9A24B;">{{ money($booking->total_amount, $booking->currency) }}</span>
                 </div>
                 <div class="flex justify-between py-2 border-b border-gray-100">
                     <span class="text-gray-500">Payment Method</span>
@@ -59,7 +59,7 @@
         @if($booking->payment_method === 'bank_transfer')
         <div class="rounded-2xl p-5 mb-6 text-sm text-left" style="background:#F1E9D7;border:1px solid #C9A24B;">
             <p class="font-semibold mb-2" style="color:#2E4636;">Complete Your Bank Transfer</p>
-            <p>Please transfer <strong>{{ frw($booking->total_amount, 2) }}</strong> to:</p>
+            <p>Please transfer <strong>{{ money($booking->total_amount, $booking->currency) }}</strong> to:</p>
             <p class="mt-1">Bank: <strong>Bank of Kigali</strong> | Account: <strong>TODO</strong></p>
             <p>Reference: <strong>{{ $booking->reference }}</strong></p>
             <p class="mt-2 text-gray-500">Send proof of payment to <a href="mailto:izubatreat@gmail.com" class="underline">izubatreat@gmail.com</a></p>

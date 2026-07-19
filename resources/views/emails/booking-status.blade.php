@@ -44,7 +44,7 @@
                                 <p style="margin:0 0 6px;font-size:13px;color:#555;"><strong>Room:</strong> {{ $booking->room->roomType->name ?? 'Room' }} ({{ $booking->room->room_number ?? '' }})</p>
                                 <p style="margin:0 0 6px;font-size:13px;color:#555;"><strong>Check-in:</strong> {{ $booking->check_in->format('d M Y') }}</p>
                                 <p style="margin:0 0 6px;font-size:13px;color:#555;"><strong>Check-out:</strong> {{ $booking->check_out->format('d M Y') }}</p>
-                                <p style="margin:0;font-size:13px;color:#555;"><strong>Total:</strong> {{ frw($booking->total_amount) }}</p>
+                                <p style="margin:0;font-size:13px;color:#555;"><strong>Total:</strong> {{ money($booking->total_amount, $booking->currency) }}</p>
                             </td></tr>
                         </table>
 

@@ -73,6 +73,7 @@ class BookingController extends Controller
                 'nights'         => $nights,
                 'price_per_night'=> $roomType->price_per_night,
                 'total_amount'   => $total,
+                'currency'       => $roomType->currency ?? 'RWF',
             ]
         ]);
 
@@ -136,6 +137,7 @@ class BookingController extends Controller
             'guest_phone'     => $draft['guest_phone'] ?? null,
             'price_per_night' => $draft['price_per_night'],
             'total_amount'    => $draft['total_amount'],
+            'currency'        => $draft['currency'] ?? 'RWF',
             'payment_method'  => $request->payment_method,
             'special_requests'=> $draft['special_requests'] ?? null,
             'status'          => 'pending',

@@ -20,7 +20,7 @@
                 <div class="flex justify-between"><span>Check-in:</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_in'])->format('d M Y') }}</span></div>
                 <div class="flex justify-between"><span>Check-out:</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_out'])->format('d M Y') }}</span></div>
                 <div class="flex justify-between text-base font-bold mt-3 pt-3 border-t">
-                    <span>Total:</span><span style="color:#C9A24B;">{{ frw($draft['total_amount'], 2) }}</span>
+                    <span>Total:</span><span style="color:#C9A24B;">{{ money($draft['total_amount'], $draft['currency'] ?? 'RWF') }}</span>
                 </div>
             </div>
         </div>

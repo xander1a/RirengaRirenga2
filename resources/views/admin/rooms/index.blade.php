@@ -24,7 +24,7 @@
                     @foreach($roomTypes as $rt)
                     <tr>
                         <td class="px-5 py-3 font-medium">{{ $rt->name }}</td>
-                        <td class="px-5 py-3" style="color:#C9A24B;font-weight:600;">{{ frw($rt->price_per_night, 2) }}</td>
+                        <td class="px-5 py-3" style="color:#C9A24B;font-weight:600;">{{ money($rt->price_per_night, $rt->currency) }}</td>
                         <td class="px-5 py-3 text-gray-600">{{ $rt->max_guests }}</td>
                         <td class="px-5 py-3 text-gray-600">{{ $rt->rooms->count() }}</td>
                         <td class="px-5 py-3">

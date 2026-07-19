@@ -78,7 +78,7 @@
                     <td class="px-5 py-2.5">{{ $b->guest_name }}</td>
                     <td class="px-5 py-2.5 text-gray-500">{{ $b->room->roomType->name ?? '—' }}</td>
                     <td class="px-5 py-2.5 text-gray-500">{{ $b->check_in->format('d M Y') }}</td>
-                    <td class="px-5 py-2.5 font-semibold">{{ frw($b->total_amount, 2) }}</td>
+                    <td class="px-5 py-2.5 font-semibold">{{ money($b->total_amount, $b->currency) }}</td>
                     <td class="px-5 py-2.5">
                         <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold capitalize
                             {{ $b->status === 'confirmed' ? 'bg-green-100 text-green-700' :

@@ -79,7 +79,7 @@
                     <td class="px-5 py-3">{{ $b->guest_name }}</td>
                     <td class="px-5 py-3 text-gray-500">{{ $b->room->roomType->name ?? '—' }}</td>
                     <td class="px-5 py-3 text-gray-500">{{ $b->check_in->format('d M Y') }}</td>
-                    <td class="px-5 py-3 text-right font-semibold">{{ frw($b->total_amount,2) }}</td>
+                    <td class="px-5 py-3 text-right font-semibold">{{ money($b->total_amount, $b->currency) }}</td>
                     <td class="px-5 py-3">
                         <span class="px-2 py-0.5 rounded-full text-xs capitalize {{ in_array($b->payment_status,['paid','manual_confirmed'])?'bg-green-100 text-green-700':($b->payment_status==='failed'?'bg-red-100 text-red-700':'bg-yellow-100 text-yellow-700') }}">
                             {{ str_replace('_',' ',$b->payment_status) }}

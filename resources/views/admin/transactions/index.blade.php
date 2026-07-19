@@ -73,7 +73,7 @@
                         @endif
                     </td>
                     <td class="px-5 py-3 capitalize text-gray-600">{{ str_replace('_',' ',$tx->gateway) }}</td>
-                    <td class="px-5 py-3 font-semibold">{{ frw($tx->amount) }}</td>
+                    <td class="px-5 py-3 font-semibold">{{ money($tx->amount, $tx->currency) }}</td>
                     <td class="px-5 py-3">
                         <span class="px-2 py-0.5 rounded-full text-xs font-semibold capitalize {{ match($tx->status) {
                             'completed' => 'bg-green-100 text-green-700',

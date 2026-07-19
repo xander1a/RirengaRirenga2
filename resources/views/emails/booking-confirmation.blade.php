@@ -35,7 +35,7 @@
         <div class="row"><span class="label">Nights</span><span class="value">{{ $booking->nights }}</span></div>
         <div class="row"><span class="label">Guests</span><span class="value">{{ $booking->guests }}</span></div>
         <div class="row"><span class="label">Includes</span><span class="value">✓ Dinner & Breakfast daily</span></div>
-        <div class="row"><span class="label">Total Amount</span><span class="value total">{{ frw($booking->total_amount, 2) }}</span></div>
+        <div class="row"><span class="label">Total Amount</span><span class="value total">{{ money($booking->total_amount, $booking->currency) }}</span></div>
         <div class="row"><span class="label">Payment Method</span><span class="value capitalize">{{ str_replace('_',' ',$booking->payment_method ?? '') }}</span></div>
         <div class="row"><span class="label">Payment Status</span><span class="value capitalize">{{ str_replace('_',' ',$booking->payment_status) }}</span></div>
 

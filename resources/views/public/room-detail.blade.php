@@ -23,7 +23,7 @@
                     <h2 class="font-display text-3xl font-bold mt-2" style="color:#2E4636;">{{ $roomType->name }}</h2>
                 </div>
                 <div class="text-right">
-                    <p class="text-3xl font-bold" style="color:#C9A24B;">{{ frw($roomType->price_per_night) }}</p>
+                    <p class="text-3xl font-bold" style="color:#C9A24B;">{{ money($roomType->price_per_night, $roomType->currency) }}</p>
                     <p class="text-xs text-gray-400">per night · up to {{ $roomType->max_guests }} guest(s)</p>
                 </div>
             </div>

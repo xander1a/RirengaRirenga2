@@ -49,7 +49,7 @@
                 @endforeach
                 <div class="flex justify-between py-2 border-b border-gray-100">
                     <span class="text-gray-500">Total</span>
-                    <span class="font-bold text-base" style="color:#C9A24B;">{{ frw($booking->total_amount, 2) }}</span>
+                    <span class="font-bold text-base" style="color:#C9A24B;">{{ money($booking->total_amount, $booking->currency) }}</span>
                 </div>
                 <div class="flex justify-between py-2">
                     <span class="text-gray-500">Payment Status</span>

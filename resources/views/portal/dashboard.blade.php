@@ -27,7 +27,7 @@
                         <p class="text-sm text-gray-500">{{ $b->check_in->format('d M Y') }} → {{ $b->check_out->format('d M Y') }} ({{ $b->nights }} nights)</p>
                     </div>
                     <div class="text-right">
-                        <p class="font-bold text-lg" style="color:#C9A24B;">{{ frw($b->total_amount, 2) }}</p>
+                        <p class="font-bold text-lg" style="color:#C9A24B;">{{ money($b->total_amount, $b->currency) }}</p>
                         <span class="text-xs px-2 py-0.5 rounded-full capitalize {{ in_array($b->payment_status,['paid','manual_confirmed'])?'bg-green-100 text-green-700':'bg-yellow-100 text-yellow-700' }}">
                             {{ str_replace('_',' ',$b->payment_status) }}
                         </span>

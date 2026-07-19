@@ -36,7 +36,7 @@
             </div>
             <div class="space-y-3">
                 <h3 class="font-semibold text-gray-700 uppercase text-xs tracking-wide">Payment</h3>
-                <p>Total: <strong style="color:#C9A24B;">{{ frw($booking->total_amount, 2) }}</strong></p>
+                <p>Total: <strong style="color:#C9A24B;">{{ money($booking->total_amount, $booking->currency) }}</strong></p>
                 <p>Method: <strong class="capitalize">{{ str_replace('_',' ',$booking->payment_method ?? 'N/A') }}</strong></p>
                 <p>Status: <span class="px-2 py-0.5 rounded-full text-xs font-semibold capitalize {{ $booking->payment_status==='paid'||$booking->payment_status==='manual_confirmed'?'bg-green-100 text-green-700':'bg-yellow-100 text-yellow-700' }}">{{ str_replace('_',' ',$booking->payment_status) }}</span></p>
             </div>
