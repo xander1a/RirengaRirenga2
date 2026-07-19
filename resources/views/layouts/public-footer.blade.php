@@ -36,8 +36,9 @@
                 <h4 class="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Contact</h4>
                 <ul class="space-y-2 text-sm text-white/70">
                     <li>📍 Rwanda (exact address — TODO)</li>
-                    <li>📞 <a href="tel:+250788000000" class="hover:text-white">+250 788 000 000</a></li>
-                    <li>✉️ <a href="mailto:info@byizaecolodge.com" class="hover:text-white">info@byizaecolodge.com</a></li>
+                    <li>📞 <a href="tel:+250787770750" class="hover:text-white">0787 770 750</a></li>
+                    <li>💬 <a href="https://wa.me/250787770750" target="_blank" rel="noopener" class="hover:text-white">WhatsApp: +250 787 770 750</a></li>
+                    <li>✉️ <a href="mailto:izubatreat@gmail.com" class="hover:text-white">izubatreat@gmail.com</a></li>
                 </ul>
                 <a href="{{ route('booking') }}"
                    class="mt-6 inline-block px-5 py-2 rounded-xl text-white text-sm font-semibold transition hover:opacity-90"

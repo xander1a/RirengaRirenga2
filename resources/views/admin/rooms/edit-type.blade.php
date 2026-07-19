@@ -14,8 +14,14 @@
                     <input type="text" name="name" required value="{{ $roomType->name }}" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-1">Price per Night (USD)</label>
-                    <input type="number" name="price_per_night" step="0.01" required value="{{ $roomType->price_per_night }}" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2">
+                    <label class="block text-sm font-medium mb-1">Price per Night</label>
+                    <div class="flex gap-2">
+                        <input type="number" name="price_per_night" step="0.01" required value="{{ $roomType->price_per_night }}" class="flex-1 min-w-0 rounded-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2">
+                        <select name="currency" class="rounded-xl border border-gray-200 px-3 py-3 text-sm shrink-0">
+                            <option value="RWF" {{ ($roomType->currency ?? 'RWF') === 'RWF' ? 'selected' : '' }}>RWF</option>
+                            <option value="USD" {{ ($roomType->currency ?? 'RWF') === 'USD' ? 'selected' : '' }}>USD</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Max Guests</label>

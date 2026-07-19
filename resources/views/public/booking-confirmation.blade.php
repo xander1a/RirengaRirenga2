@@ -62,7 +62,7 @@
             <p>Please transfer <strong>{{ frw($booking->total_amount, 2) }}</strong> to:</p>
             <p class="mt-1">Bank: <strong>Bank of Kigali</strong> | Account: <strong>TODO</strong></p>
             <p>Reference: <strong>{{ $booking->reference }}</strong></p>
-            <p class="mt-2 text-gray-500">Send proof of payment to <a href="mailto:info@byizaecolodge.com" class="underline">info@byizaecolodge.com</a></p>
+            <p class="mt-2 text-gray-500">Send proof of payment to <a href="mailto:izubatreat@gmail.com" class="underline">izubatreat@gmail.com</a></p>
         </div>
         @endif
 

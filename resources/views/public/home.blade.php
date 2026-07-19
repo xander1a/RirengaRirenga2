@@ -171,7 +171,7 @@
                     <x-icon-tile icon="bed" bg="linear-gradient(135deg, #6E8C5A22, #2E463633)" color="#2E4636" />
                     @endif
                     <span class="absolute top-4 {{ $i % 2 === 1 ? 'right-4' : 'left-4' }} px-4 py-1.5 rounded-full text-sm font-bold text-white shadow pointer-events-none" style="background:rgba(46,70,54,0.85);backdrop-filter:blur(4px);">
-                        {{ frw($rt->price_per_night) }}<span class="text-[11px] font-normal text-white/70">/night</span>
+                        {{ money($rt->price_per_night, $rt->currency) }}<span class="text-[11px] font-normal text-white/70">/night</span>
                     </span>
                 </div>
 

@@ -34,7 +34,7 @@
                         <div class="flex items-baseline gap-3 {{ $loop->odd ? '' : 'sm:flex-row-reverse' }}">
                             <h3 class="font-display text-xl lg:text-2xl font-semibold" style="color:#2B2A28;">{{ $item->local_name }}</h3>
                             <span class="flex-1 border-b border-dotted border-gray-300 hidden sm:block"></span>
-                            <span class="font-bold text-lg whitespace-nowrap" style="color:#C9A24B;">{{ frw($item->price) }}</span>
+                            <span class="font-bold text-lg whitespace-nowrap" style="color:#C9A24B;">{{ money($item->price, $item->currency) }}</span>
                         </div>
                         @if($item->local_description)
                         <p class="text-gray-500 mt-3 leading-relaxed max-w-xl {{ $loop->odd ? '' : 'sm:ml-auto' }}">{{ $item->local_description }}</p>

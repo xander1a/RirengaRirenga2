@@ -19,14 +19,21 @@
                     <span class="text-2xl">📞</span>
                     <div>
                         <p class="font-semibold">{{ __('contact.phone') }}</p>
-                        <a href="tel:+250788000000" class="text-sm mt-1 hover:underline" style="color:#BF6B47;">+250 788 000 000</a>
+                        <a href="tel:+250787770750" class="text-sm mt-1 hover:underline" style="color:#BF6B47;">0787 770 750</a>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="text-2xl">💬</span>
+                    <div>
+                        <p class="font-semibold">WhatsApp</p>
+                        <a href="https://wa.me/250787770750" target="_blank" rel="noopener" class="text-sm mt-1 hover:underline" style="color:#BF6B47;">+250 787 770 750</a>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
                     <span class="text-2xl">✉️</span>
                     <div>
                         <p class="font-semibold">{{ __('contact.email_label') }}</p>
-                        <a href="mailto:info@byizaecolodge.com" class="text-sm mt-1 hover:underline" style="color:#BF6B47;">info@byizaecolodge.com</a>
+                        <a href="mailto:izubatreat@gmail.com" class="text-sm mt-1 hover:underline" style="color:#BF6B47;">izubatreat@gmail.com</a>
                     </div>
                 </div>
             </div>

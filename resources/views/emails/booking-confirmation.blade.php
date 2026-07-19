@@ -45,7 +45,7 @@
             Bank: Bank of Kigali<br>
             Account: BYIZA Eco-lodge Ltd (TODO: add account)<br>
             Reference: <strong>{{ $booking->reference }}</strong><br>
-            Email proof to info@byizaecolodge.com
+            Email proof to izubatreat@gmail.com
         </div>
         @endif
 
@@ -53,7 +53,7 @@
             <a class="btn" href="{{ url('/booking/confirmation/'.$booking->reference) }}">View Booking</a>
         </div>
 
-        <p style="font-size:13px;color:#999;">Questions? Email us at info@byizaecolodge.com or call +250 788 000 000.</p>
+        <p style="font-size:13px;color:#999;">Questions? Email us at izubatreat@gmail.com or call 0787 770 750.</p>
     </div>
     <div class="footer">
         &copy; {{ date('Y') }} BYIZA Eco-lodge — Rwanda

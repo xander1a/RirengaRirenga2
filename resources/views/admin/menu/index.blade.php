@@ -122,8 +122,14 @@
                 <input type="text" name="description" class="w-full rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
             </div>
             <div>
-                <label class="block text-xs mb-1">Price (RWF)</label>
-                <input type="number" name="price" step="0.01" min="0" required class="w-full rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
+                <label class="block text-xs mb-1">Price</label>
+                <div class="flex gap-2">
+                    <input type="number" name="price" step="0.01" min="0" required class="flex-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
+                    <select name="currency" class="rounded-xl border border-gray-200 px-2 py-2.5 min-h-[44px] text-sm shrink-0">
+                        <option value="RWF">RWF</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label class="block text-xs mb-1">Photo (shown on menu &amp; home page)</label>
@@ -192,8 +198,14 @@
                             <input type="text" name="name_fr" value="{{ $item->name_fr }}" class="w-full rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
                         </div>
                         <div>
-                            <label class="block text-xs mb-1">Price (RWF)</label>
-                            <input type="number" name="price" step="0.01" min="0" value="{{ $item->price }}" required class="w-full rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
+                            <label class="block text-xs mb-1">Price</label>
+                            <div class="flex gap-2">
+                                <input type="number" name="price" step="0.01" min="0" value="{{ $item->price }}" required class="flex-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
+                                <select name="currency" class="rounded-xl border border-gray-200 px-2 py-2.5 min-h-[44px] text-sm shrink-0">
+                                    <option value="RWF" {{ ($item->currency ?? 'RWF') === 'RWF' ? 'selected' : '' }}>RWF</option>
+                                    <option value="USD" {{ ($item->currency ?? 'RWF') === 'USD' ? 'selected' : '' }}>USD</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label class="block text-xs mb-1">Description (EN)</label>

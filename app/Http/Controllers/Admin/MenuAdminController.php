@@ -65,6 +65,7 @@ class MenuAdminController extends Controller
             'description'      => 'nullable|string',
             'description_fr'   => 'nullable|string',
             'price'            => 'required|numeric|min:0',
+            'currency'     => 'required|in:RWF,USD',
             'image'            => 'nullable|image|max:4096',
             'is_available'     => 'boolean',
         ]);
@@ -85,6 +86,7 @@ class MenuAdminController extends Controller
             'name_fr'      => 'nullable|string|max:255',
             'description'  => 'nullable|string',
             'price'        => 'required|numeric|min:0',
+            'currency'     => 'required|in:RWF,USD',
             'image'        => 'nullable|image|max:4096',
             'is_available' => 'boolean',
         ]);

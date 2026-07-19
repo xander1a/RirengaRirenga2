@@ -28,6 +28,7 @@ class RoomAdminController extends Controller
             'name'            => 'required|string|max:255',
             'description'     => 'nullable|string',
             'price_per_night' => 'required|numeric|min:0',
+            'currency'        => 'required|in:RWF,USD',
             'max_guests'      => 'required|integer|min:1',
             'amenities'       => 'nullable|string',
             'image'           => 'nullable|image|max:4096',

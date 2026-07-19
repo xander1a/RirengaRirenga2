@@ -81,8 +81,8 @@
                         </div>
                         <div class="text-right flex flex-col justify-between min-w-32">
                             <div>
-                                <p class="text-2xl font-bold" style="color:#C9A24B;">{{ frw($rt->price_per_night) }}<span class="text-sm text-gray-400">/night</span></p>
-                                <p class="text-lg font-semibold mt-1" style="color:#2E4636;">{{ frw($rt->price_per_night * $nights) }} <span class="text-xs text-gray-400">total ({{ $nights }} nights)</span></p>
+                                <p class="text-2xl font-bold" style="color:#C9A24B;">{{ money($rt->price_per_night, $rt->currency) }}<span class="text-sm text-gray-400">/night</span></p>
+                                <p class="text-lg font-semibold mt-1" style="color:#2E4636;">{{ money($rt->price_per_night * $nights, $rt->currency) }} <span class="text-xs text-gray-400">total ({{ $nights }} nights)</span></p>
                                 <p class="text-xs text-gray-400 mt-1">Incl. dinner & breakfast</p>
                             </div>
                             <button type="submit" class="mt-4 px-6 py-2 rounded-xl text-white text-sm font-semibold transition hover:opacity-90" style="background-color:#BF6B47;">

@@ -8,7 +8,7 @@ class MenuItem extends Model
 {
     protected $fillable = [
         'menu_category_id', 'name', 'name_fr', 'description', 'description_fr',
-        'price', 'image', 'is_available', 'sort_order',
+        'price', 'currency', 'image', 'is_available', 'sort_order',
     ];
 
     protected $casts = [

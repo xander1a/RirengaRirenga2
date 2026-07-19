@@ -12,6 +12,18 @@ if (! function_exists('frw')) {
     }
 }
 
+if (! function_exists('money')) {
+    /**
+     * Format an amount in the given currency: "12,000 RWF" or "$12.00".
+     */
+    function money(float|int|string|null $amount, ?string $currency = 'RWF'): string
+    {
+        return strtoupper($currency ?? 'RWF') === 'USD'
+            ? '$' . number_format((float) $amount, 2)
+            : number_format((float) $amount, 0) . ' RWF';
+    }
+}
+
 if (! function_exists('site_image')) {
     /**
      * Public URL of an admin-managed site image slot, or null when not set.

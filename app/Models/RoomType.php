@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RoomType extends Model
 {
     protected $fillable = [
-        'code', 'name', 'description', 'price_per_night',
-        'max_guests', 'amenities', 'image', 'images', 'is_active',
+        'code', 'name', 'description', 'price_per_night', 'currency',        'max_guests', 'amenities', 'image', 'images', 'is_active',
     ];
 
     protected $casts = [
