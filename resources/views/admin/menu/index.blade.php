@@ -166,7 +166,7 @@
                             @if($item->description)<span class="text-gray-400 text-xs block">{{ $item->description }}</span>@endif
                         </div>
                     </div>
-                    <span class="font-semibold" style="color:#C9A24B;">{{ frw($item->price, 2) }}</span>
+                    <span class="font-semibold" style="color:#C9A24B;">{{ money($item->price, $item->currency) }}</span>
                     <span class="px-2 py-0.5 rounded-full text-xs {{ $item->is_available?'bg-green-100 text-green-700':'bg-red-100 text-red-700' }}">
                         {{ $item->is_available?'Available':'Hidden' }}
                     </span>
