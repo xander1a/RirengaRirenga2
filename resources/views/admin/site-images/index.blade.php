@@ -44,7 +44,7 @@
             <form action="{{ route('admin.site-images.update', $key) }}" method="POST" enctype="multipart/form-data" class="flex items-center gap-2">
                 @csrf
                 <input type="file" name="image" accept="image/*" required @change="pick($event)"
-                       class="flex-1 min-w-0 text-xs text-gray-500 file:mr-2 file:px-3 file:py-2 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:text-white file:cursor-pointer">
+                       class="flex-1 min-w-0 text-xs text-gray-500 rounded-xl border border-gray-200 p-1 file:mr-2 file:px-3 file:py-2 file:rounded-lg file:border file:border-solid file:border-[#2E4636] file:bg-[#2E4636] file:text-white file:text-xs file:font-semibold file:cursor-pointer hover:file:opacity-90">
                 <button type="submit" x-show="preview" x-cloak
                         class="px-3 py-2 rounded-lg text-white text-xs font-semibold shrink-0" style="background-color:#BF6B47;">
                     Upload

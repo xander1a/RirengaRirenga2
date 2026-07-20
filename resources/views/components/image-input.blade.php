@@ -3,7 +3,7 @@
 {{-- File input with a live thumbnail preview of the image about to be uploaded --}}
 <div x-data="{ preview: null, pick(e) { const f = e.target.files[0]; this.preview = f ? URL.createObjectURL(f) : null; } }">
     <input type="file" name="{{ $name }}" accept="image/*" @change="pick($event)" {{ $required ? 'required' : '' }}
-           {{ $attributes->merge(['class' => 'w-full text-sm text-gray-500 file:mr-3 file:px-3 file:py-2 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:text-white file:cursor-pointer']) }}>
+           {{ $attributes->merge(['class' => 'w-full text-sm text-gray-500 rounded-xl border border-gray-200 p-1.5 file:mr-3 file:px-4 file:py-2 file:rounded-lg file:border file:border-solid file:border-[#2E4636] file:bg-[#2E4636] file:text-white file:text-xs file:font-semibold file:cursor-pointer hover:file:opacity-90']) }}>
 
     <div class="mt-2 flex items-center gap-3" x-show="preview || {{ $current ? 'true' : 'false' }}">
         @if($current)

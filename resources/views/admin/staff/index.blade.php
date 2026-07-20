@@ -16,6 +16,7 @@
             <div><label class="block text-xs mb-1">Role</label>
                 <select name="role" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm">
                     <option value="manager">Manager</option>
+                    <option value="director">Director</option>
                     <option value="staff">Staff</option>
                 </select>
             </div>
@@ -82,6 +83,7 @@
                                 <div><label class="block text-xs mb-1">Role</label>
                                     <select name="role" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm">
                                         <option value="manager" {{ $member->hasRole('manager')?'selected':'' }}>Manager</option>
+                                        <option value="director">Director — full access</option>
                                         <option value="staff" {{ $member->hasRole('staff')?'selected':'' }}>Staff</option>
                                         <option value="customer">Customer — remove from team</option>
                                     </select></div>
@@ -165,6 +167,7 @@
                                         <option value="customer" selected>Customer</option>
                                         <option value="staff">Staff — promote to team</option>
                                         <option value="manager">Manager — promote to team</option>
+                                        <option value="director">Director — promote to team (full access)</option>
                                     </select></div>
                                 <div><label class="block text-xs mb-1">New Password <span class="text-gray-400">(leave blank to keep)</span></label>
                                     <input type="password" name="password" minlength="8" autocomplete="new-password" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>

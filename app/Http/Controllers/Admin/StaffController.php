@@ -33,7 +33,7 @@ class StaffController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users',
             'phone'    => 'nullable|string|max:30',
-            'role'     => 'required|in:manager,staff',
+            'role'     => 'required|in:director,manager,staff',
             'password' => 'required|min:8',
         ]);
 
@@ -56,7 +56,7 @@ class StaffController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email,'.$user->id,
             'phone'    => 'nullable|string|max:30',
-            'role'     => 'required|in:manager,staff,customer',
+            'role'     => 'required|in:director,manager,staff,customer',
             'password' => 'nullable|min:8',
         ]);
 
