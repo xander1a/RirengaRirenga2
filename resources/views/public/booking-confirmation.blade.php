@@ -7,7 +7,7 @@
     <div class="max-w-2xl mx-auto text-center">
         <div class="text-6xl mb-6">🎉</div>
         <h1 class="font-display text-4xl font-bold mb-4" style="color:#2E4636;">Booking Received!</h1>
-        <p class="text-gray-600 mb-8">Thank you, <strong>{{ $booking->guest_name }}</strong>. We look forward to welcoming you at BYIZA Eco-lodge.</p>
+        <p class="text-gray-600 mb-8">Thank you, <strong>{{ $booking->guest_name }}</strong>. We look forward to welcoming you at Byiza Lodge Ltd.</p>
 
         <div class="bg-white rounded-2xl p-8 shadow-md text-left mb-8">
             <div class="flex justify-between items-center mb-6">

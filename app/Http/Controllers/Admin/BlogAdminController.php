@@ -35,7 +35,7 @@ class BlogAdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('blog', 'public');
+            $data['image'] = store_image($request->file('image'), 'blog');
         }
 
         $data['slug']         = Str::slug($data['title']);
@@ -66,7 +66,7 @@ class BlogAdminController extends Controller
 
         if ($request->hasFile('image')) {
             if ($blogPost->image) Storage::disk('public')->delete($blogPost->image);
-            $data['image'] = $request->file('image')->store('blog', 'public');
+            $data['image'] = store_image($request->file('image'), 'blog');
         }
 
         $data['is_published'] = $request->boolean('is_published');

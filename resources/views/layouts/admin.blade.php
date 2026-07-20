@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#2E4636">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin') — BYIZA Admin</title>
+    <title>@yield('title', 'Admin') — Byiza Lodge Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -40,7 +40,7 @@
     <aside class="hidden lg:flex w-72 flex-col" style="background-color:#2E4636;">
         <div class="p-5 border-b border-white/10">
             <a href="{{ route('home') }}" class="font-display text-xl font-bold text-white tracking-wide">
-                BYIZA <span class="font-sans text-xs font-normal text-white/50 align-middle">Admin</span>
+                Byiza Lodge <span class="font-sans text-xs font-normal text-white/50 align-middle">Admin</span>
             </a>
         </div>
         <nav class="flex-1 overflow-y-auto sidebar-scroll p-3 space-y-1">

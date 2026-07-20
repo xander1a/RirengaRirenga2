@@ -104,7 +104,7 @@
             <div x-show="method === 'bank_transfer'" class="rounded-2xl p-5 mb-6 text-sm" style="background:#F1E9D7;">
                 <p class="font-semibold mb-2" style="color:#2E4636;">Bank Transfer Details</p>
                 <p>Bank: <strong>Bank of Kigali</strong></p>
-                <p>Account Name: <strong>BYIZA Eco-lodge Ltd</strong></p>
+                <p>Account Name: <strong>Byiza Lodge Ltd</strong></p>
                 <p>Account Number: <strong>TODO: Add account number</strong></p>
                 <p>SWIFT/BIC: <strong>TODO: Add SWIFT code</strong></p>
                 <p class="mt-2 text-gray-500">Please use your booking reference as the payment description. Email proof to izubatreat@gmail.com.</p>

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ $title ? $title . ' — ' : '' }}{{ config('app.name', 'BYIZA') }}</title>
+        <title>{{ $title ? $title . ' — ' : '' }}{{ config('app.name', 'Byiza Lodge') }}</title>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -17,7 +17,7 @@
         {{-- Top nav bar --}}
         <nav style="background:#2E4636;" class="w-full px-6 py-3 flex items-center justify-between">
             <a href="/" class="font-display text-lg font-bold tracking-wide text-white">
-                BYIZA 
+                Byiza Lodge 
             </a>
             <div class="flex items-center gap-4 text-sm">
                 <a href="{{ route('login') }}" class="text-white/70 hover:text-white transition">Login</a>
@@ -36,7 +36,7 @@
                     background-size: 28px 28px;"></div>
 
                 <a href="/" class="relative z-10 font-display text-2xl font-bold tracking-wide text-white">
-                    BYIZA 
+                    Byiza Lodge 
                 </a>
 
                 <div class="relative z-10 max-w-md">

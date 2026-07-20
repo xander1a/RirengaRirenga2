@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'BYIZA Eco-lodge') — BYIZA Eco-lodge</title>
-    <meta name="description" content="@yield('meta_description', 'BYIZA Eco-lodge — A sustainable eco-lodge in the heart of Rwanda.')">
+    <title>@yield('title', 'Byiza Lodge Ltd') — Byiza Lodge Ltd</title>
+    <meta name="description" content="@yield('meta_description', 'Byiza Lodge Ltd — A sustainable eco-lodge in the heart of Rwanda.')">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2E4636">

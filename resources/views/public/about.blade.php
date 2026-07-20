@@ -8,8 +8,8 @@
             <div>
                 <p class="text-sm font-semibold uppercase tracking-widest mb-2" style="color:#BF6B47;">Our Story</p>
                 <h2 class="font-display text-4xl font-bold mb-6" style="color:#2E4636;">Born from a Love of Rwanda's Wild Places</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">BYIZA Eco-lodge was founded with a simple belief: that the most memorable travel experiences come from deep connection — to nature, to community, and to culture.</p>
-                <p class="text-gray-600 leading-relaxed mb-4">Perched in the lush hills of Rwanda, our lodge is designed to leave the lightest possible footprint while giving guests an unforgettable sense of place.</p>
+                <p class="text-gray-600 leading-relaxed mb-4"><strong>Byiza</strong> means <em>beautiful</em> in Kinyarwanda, Rwanda's national language. Byiza Lodge is situated in the Kingdom of the Gorillas, on a hilltop between the twin lakes of Ruhondo and Burera, overlooking the Virunga volcanoes.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">Byiza Lodge Ltd was founded with a simple belief: that the most memorable travel experiences come from deep connection — to nature, to community, and to culture. Our lodge is designed to leave the lightest possible footprint while giving guests an unforgettable sense of place.</p>
                 <p class="text-gray-600 leading-relaxed">Every detail — from locally sourced food to community-guided hikes — reflects our commitment to sustainable, meaningful hospitality.</p>
             </div>
             <div class="text-center text-8xl">🏔️🌿</div>

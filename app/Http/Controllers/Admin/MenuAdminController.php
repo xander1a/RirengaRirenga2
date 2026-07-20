@@ -72,7 +72,7 @@ class MenuAdminController extends Controller
         $data['is_available'] = $request->boolean('is_available', true);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('menu', 'public');
+            $data['image'] = store_image($request->file('image'), 'menu');
         }
 
         MenuItem::create($data);
@@ -96,7 +96,7 @@ class MenuAdminController extends Controller
             if ($menuItem->image) {
                 Storage::disk('public')->delete($menuItem->image);
             }
-            $data['image'] = $request->file('image')->store('menu', 'public');
+            $data['image'] = store_image($request->file('image'), 'menu');
         }
 
         $menuItem->update($data);

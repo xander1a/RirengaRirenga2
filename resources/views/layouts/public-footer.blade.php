@@ -4,7 +4,7 @@
 
             {{-- Brand --}}
             <div class="md:col-span-2">
-                <span class="font-display text-2xl font-bold text-white">BYIZA Eco-lodge</span>
+                <span class="font-display text-2xl font-bold text-white">Byiza Lodge Ltd</span>
                 <p class="mt-3 text-sm text-white/70 leading-relaxed max-w-xs">
                     A sustainable sanctuary in the hills of Rwanda. Rooms, restaurant, bar and unforgettable hiking experiences.
                 </p>
@@ -35,7 +35,7 @@
             <div>
                 <h4 class="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Contact</h4>
                 <ul class="space-y-2 text-sm text-white/70">
-                    <li>📍 Rwanda (exact address — TODO)</li>
+                    <li>📍 Kingdom of the Gorillas — between lakes Ruhondo &amp; Burera, Rwanda</li>
                     <li>📞 <a href="tel:+250787770750" class="hover:text-white">0787 770 750</a></li>
                     <li>💬 <a href="https://wa.me/250787770750" target="_blank" rel="noopener" class="hover:text-white">WhatsApp: +250 787 770 750</a></li>
                     <li>✉️ <a href="mailto:izubatreat@gmail.com" class="hover:text-white">izubatreat@gmail.com</a></li>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="mt-10 pt-6 border-t border-white/20 flex flex-col sm:flex-row justify-between items-center text-xs text-white/40">
-            <span>&copy; {{ date('Y') }} BYIZA Eco-lodge. All rights reserved.</span>
+            <span>&copy; {{ date('Y') }} Byiza Lodge Ltd. All rights reserved.</span>
             <div class="mt-2 sm:mt-0 flex gap-4">
                 <a href="{{ route('locale.set', 'en') }}" class="hover:text-white/70">EN</a>
                 <a href="{{ route('locale.set', 'fr') }}" class="hover:text-white/70">FR</a>

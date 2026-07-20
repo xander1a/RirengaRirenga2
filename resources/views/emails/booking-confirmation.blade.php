@@ -21,12 +21,12 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>BYIZA Eco-lodge</h1>
+        <h1>Byiza Lodge Ltd</h1>
         <p>Booking Confirmation</p>
     </div>
     <div class="body">
         <p>Dear <strong>{{ $booking->guest_name }}</strong>,</p>
-        <p>Thank you for booking with BYIZA Eco-lodge. We look forward to welcoming you!</p>
+        <p>Thank you for booking with Byiza Lodge Ltd. We look forward to welcoming you!</p>
 
         <div class="row"><span class="label">Reference</span><span class="value">{{ $booking->reference }}</span></div>
         <div class="row"><span class="label">Room</span><span class="value">{{ $booking->room->roomType->name ?? 'Room' }}</span></div>
@@ -43,7 +43,7 @@
         <div style="background:#F1E9D7;padding:16px;border-radius:12px;margin-top:20px;font-size:13px;">
             <strong>Bank Transfer Instructions:</strong><br>
             Bank: Bank of Kigali<br>
-            Account: BYIZA Eco-lodge Ltd (TODO: add account)<br>
+            Account: Byiza Lodge Ltd (TODO: add account)<br>
             Reference: <strong>{{ $booking->reference }}</strong><br>
             Email proof to izubatreat@gmail.com
         </div>
@@ -56,7 +56,7 @@
         <p style="font-size:13px;color:#999;">Questions? Email us at izubatreat@gmail.com or call 0787 770 750.</p>
     </div>
     <div class="footer">
-        &copy; {{ date('Y') }} BYIZA Eco-lodge — Rwanda
+        &copy; {{ date('Y') }} Byiza Lodge Ltd — Rwanda
     </div>
 </div>
 </body>

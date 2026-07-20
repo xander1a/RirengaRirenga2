@@ -16,7 +16,7 @@
                     @endif
                 </div>
                 <div class="p-6">
-                    <p class="text-xs text-gray-400 mb-2">{{ $post->published_at?->format('d M Y') }} &bull; {{ $post->author?->name ?? 'BYIZA Team' }}</p>
+                    <p class="text-xs text-gray-400 mb-2">{{ $post->published_at?->format('d M Y') }} &bull; {{ $post->author?->name ?? 'Byiza Lodge Team' }}</p>
                     <h2 class="font-display text-xl font-semibold group-hover:opacity-80 transition mb-3" style="color:#2E4636;">
                         {{ app()->getLocale() === 'fr' && $post->title_fr ? $post->title_fr : $post->title }}
                     </h2>

@@ -9,7 +9,7 @@
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center shrink-0">
-                <span class="font-display text-xl font-bold text-white tracking-wide">BYIZA</span>
+                <span class="font-display text-xl font-bold text-white tracking-wide">Byiza Lodge</span>
             </a>
 
             @php
@@ -122,7 +122,7 @@
          style="background-color:#2E4636;">
 
         <div class="flex items-center justify-between p-5 border-b border-white/10">
-            <span class="font-display text-lg font-bold text-white tracking-wide">BYIZA <span class="font-sans text-xs font-normal text-white/50 align-middle">Eco-lodge</span></span>
+            <span class="font-display text-lg font-bold text-white tracking-wide">Byiza <span class="font-sans text-xs font-normal text-white/50 align-middle">Lodge Ltd</span></span>
             <button @click="open = false" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
                 <x-admin-icon name="x-mark" class="w-5 h-5" />
             </button>

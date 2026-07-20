@@ -57,7 +57,7 @@ class SiteImageAdminController extends Controller
             Storage::disk('public')->delete($old);
         }
 
-        $path = $request->file('image')->store('site', 'public');
+        $path = store_image($request->file('image'), 'site');
         SiteSetting::set('image.' . $slot, $path);
 
         return redirect()->back()->with('success', self::SLOTS[$slot][0] . ' updated.');

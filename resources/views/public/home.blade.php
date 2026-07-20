@@ -87,7 +87,7 @@
             ] as $tile)
             <div class="aspect-square rounded-2xl overflow-hidden shadow-sm {{ $tile['class'] }}">
                 @if($src = site_image($tile['key']))
-                <img src="{{ $src }}" alt="BYIZA Eco-lodge" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                <img src="{{ $src }}" alt="Byiza Lodge Ltd" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 @else
                 <x-icon-tile :icon="$tile['icon']" :bg="$tile['bg']" :color="$tile['color']" />
                 @endif
@@ -220,7 +220,7 @@
             </div>
             <div class="aspect-[4/5] rounded-2xl overflow-hidden mt-8 shadow-sm">
                 @if($src = site_image('dining_2'))
-                <img src="{{ $src }}" alt="Dining at BYIZA" class="w-full h-full object-cover">
+                <img src="{{ $src }}" alt="Dining at Byiza Lodge" class="w-full h-full object-cover">
                 @else
                 <x-icon-tile icon="wine" bg="#2E463620" color="#2E4636" />
                 @endif
@@ -250,7 +250,7 @@
         <div class="grid grid-cols-2 gap-4" data-reveal>
             <div class="aspect-[4/5] rounded-2xl overflow-hidden mt-8 shadow-sm">
                 @if($src = site_image('bar_1'))
-                <img src="{{ $src }}" alt="Bar at BYIZA" class="w-full h-full object-cover">
+                <img src="{{ $src }}" alt="Bar at Byiza Lodge" class="w-full h-full object-cover">
                 @else
                 <x-icon-tile icon="cocktail" bg="rgba(255,255,255,0.08)" color="#C9A24B" />
                 @endif

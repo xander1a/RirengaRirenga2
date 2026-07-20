@@ -37,7 +37,7 @@ class RoomAdminController extends Controller
 
         if ($request->hasFile('image')) {
             if ($roomType->image) Storage::disk('public')->delete($roomType->image);
-            $data['image'] = $request->file('image')->store('rooms', 'public');
+            $data['image'] = store_image($request->file('image'), 'rooms');
         }
 
         if (isset($data['amenities'])) {
@@ -68,7 +68,7 @@ class RoomAdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('rooms', 'public');
+            $data['image'] = store_image($request->file('image'), 'rooms');
         }
 
         Room::create($data);

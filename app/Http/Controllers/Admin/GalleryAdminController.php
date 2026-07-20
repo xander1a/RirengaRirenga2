@@ -23,7 +23,7 @@ class GalleryAdminController extends Controller
             'title'    => 'nullable|string|max:255',
         ]);
 
-        $path = $request->file('photo')->store('gallery', 'public');
+        $path = store_image($request->file('photo'), 'gallery');
 
         GalleryPhoto::create([
             'file_path' => $path,

@@ -6,7 +6,7 @@
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#ffffff;border-radius:16px;overflow:hidden;">
                 <tr>
                     <td style="background-color:#2E4636;padding:24px;text-align:center;">
-                        <span style="font-size:22px;font-weight:bold;color:#ffffff;">BYIZA <span style="color:#C9A24B;">Eco-lodge</span></span>
+                        <span style="font-size:22px;font-weight:bold;color:#ffffff;">Byiza <span style="color:#C9A24B;">Lodge Ltd</span></span>
                     </td>
                 </tr>
                 <tr>
@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td style="padding:16px;text-align:center;background:#F9F6EF;">
-                        <span style="color:#999;font-size:11px;">© {{ date('Y') }} BYIZA Eco-lodge · Rwanda</span>
+                        <span style="color:#999;font-size:11px;">© {{ date('Y') }} Byiza Lodge Ltd · Rwanda</span>
                     </td>
                 </tr>
             </table>

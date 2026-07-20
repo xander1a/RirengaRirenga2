@@ -12,7 +12,7 @@
                     <span class="text-2xl">📍</span>
                     <div>
                         <p class="font-semibold">{{ __('contact.address') }}</p>
-                        <p class="text-sm mt-1">Rwanda (exact address provided on booking confirmation)</p>
+                        <p class="text-sm mt-1">On a hilltop between the twin lakes of Ruhondo and Burera, overlooking the Virunga volcanoes — Northern Province, Rwanda</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">

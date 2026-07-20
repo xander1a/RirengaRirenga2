@@ -10,7 +10,7 @@
                 ['🍽️','Dining','Our farm-to-table restaurant serves a changing seasonal menu celebrating Rwandan ingredients. Private dining and event catering available on request.'],
                 ['🍸','Bar','Signature cocktails, local craft beers, curated wines, and a full spirits selection. Regular live music and themed evenings.'],
                 ['🥾','Hiking','Guided and self-guided hiking experiences ranging from gentle forest loops to challenging summit trails. Cultural village walks also available.'],
-                ['🚗','Airport Transfers','Private transfers between Kigali International Airport and BYIZA Eco-lodge. Bookable with your reservation.'],
+                ['🚗','Airport Transfers','Private transfers between Kigali International Airport and Byiza Lodge Ltd. Bookable with your reservation.'],
                 ['🎉','Events & Retreats','Private event hosting, corporate retreats, and wellness weekends. Contact us to discuss your event.'],
             ] as $s)
             <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
