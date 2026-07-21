@@ -36,6 +36,7 @@
                 <h4 class="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Contact</h4>
                 <ul class="space-y-2 text-sm text-white/70">
                     <li>📍 Kingdom of the Gorillas — between lakes Ruhondo &amp; Burera, Rwanda</li>
+                    <li>🗺️ <a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener" class="hover:text-white underline">View on Google Maps</a></li>
                     <li>📞 <a href="tel:+250787770750" class="hover:text-white">0787 770 750</a></li>
                     <li>💬 <a href="https://wa.me/250787770750" target="_blank" rel="noopener" class="hover:text-white">WhatsApp: +250 787 770 750</a></li>
                     <li>✉️ <a href="mailto:izubatreat@gmail.com" class="hover:text-white">izubatreat@gmail.com</a></li>

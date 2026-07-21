@@ -13,6 +13,10 @@
                     <div>
                         <p class="font-semibold">{{ __('contact.address') }}</p>
                         <p class="text-sm mt-1">On a hilltop between the twin lakes of Ruhondo and Burera, overlooking the Virunga volcanoes — Northern Province, Rwanda</p>
+                        <a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-1.5 text-sm mt-2 font-semibold hover:underline" style="color:#BF6B47;">
+                            🗺️ Open in Google Maps
+                        </a>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
@@ -37,10 +41,18 @@
                     </div>
                 </div>
             </div>
-            {{-- Map placeholder --}}
-            <div class="mt-8 rounded-2xl overflow-hidden flex items-center justify-center text-4xl" style="background:#6E8C5A20;height:200px;">
-                🗺️ <span class="ml-3 text-lg text-gray-500">Map embed — TODO: add Google Maps embed</span>
-            </div>
+            {{-- Map --}}
+            <a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener"
+               class="group mt-8 block rounded-2xl overflow-hidden relative" style="height:200px;background:#2E4636;">
+                <div class="absolute inset-0 opacity-20"
+                     style="background-image: radial-gradient(circle, #C9A24B 1px, transparent 1px); background-size: 22px 22px;"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+                    <span class="text-4xl mb-2">🗺️</span>
+                    <span class="font-display text-lg font-semibold">Find us on Google Maps</span>
+                    <span class="text-white/60 text-sm mt-1">Ruhondo &amp; Burera lakes, Northern Rwanda</span>
+                    <span class="mt-3 inline-block px-4 py-1.5 rounded-full text-xs font-semibold transition group-hover:opacity-90" style="background:#BF6B47;">Get Directions →</span>
+                </div>
+            </a>
         </div>
 
         {{-- Contact Form --}}
