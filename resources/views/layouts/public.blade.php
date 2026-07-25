@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Byiza Lodge Ltd') — Byiza Lodge Ltd</title>
-    <meta name="description" content="@yield('meta_description', 'Byiza Lodge Ltd — A sustainable eco-lodge in the heart of Rwanda.')">
+    <title>@yield('title', 'Rirenga') — Rirenga</title>
+    <meta name="description" content="@yield('meta_description', 'Rirenga — A sustainable eco-lodge in the heart of Rwanda.')">
 
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#2E4636">
+    <meta name="theme-color" content="#1E3A4A">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
-<body class="min-h-screen flex flex-col font-sans" style="background-color:#F1E9D7;color:#2B2A28;">
+<body class="min-h-screen flex flex-col font-sans" style="background-color:#EFE9DC;color:#22201D;">
 
     @include('layouts.public-navbar')
 
@@ -38,12 +38,12 @@
          x-transition:leave-end="opacity-0 -translate-y-4"
          class="fixed top-20 inset-x-0 z-[90] flex justify-center px-4 pointer-events-none">
         <div class="pointer-events-auto flex items-start gap-3 max-w-md w-full sm:w-auto rounded-2xl shadow-xl px-5 py-4 text-sm font-medium"
-             style="{{ $flashError ? 'background:#fff;border:1px solid #BF6B4760;color:#BF6B47;' : 'background:#2E4636;color:#fff;' }}">
+             style="{{ $flashError ? 'background:#fff;border:1px solid #D07A5460;color:#D07A54;' : 'background:#1E3A4A;color:#fff;' }}">
             @if($flashError)
             <svg class="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 5h2v7h-2V7Zm1 9.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>
             <span>{{ $flashError }}</span>
             @else
-            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:#C9A24B;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.7 7.3-5.6 5.6a1 1 0 0 1-1.4 0l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.7 1.7 4.9-4.9a1 1 0 0 1 1.4 1.4Z"/></svg>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:#C99A52;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.7 7.3-5.6 5.6a1 1 0 0 1-1.4 0l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.7 1.7 4.9-4.9a1 1 0 0 1 1.4 1.4Z"/></svg>
             <span>{{ $flashMessage }}</span>
             @endif
             <button @click="show = false" class="ml-2 -mr-1 opacity-60 hover:opacity-100 shrink-0" aria-label="Dismiss">

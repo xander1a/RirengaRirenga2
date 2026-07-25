@@ -42,8 +42,8 @@
 
         <div class="flex items-start gap-4">
             <div class="shrink-0 w-11 h-11 rounded-full flex items-center justify-center"
-                 :class="danger ? 'bg-red-50' : 'bg-[#F1E9D7]'">
-                <x-admin-icon name="alert-triangle" class="w-6 h-6" x-bind:class="danger ? 'text-red-500' : 'text-[#BF6B47]'" />
+                 :class="danger ? 'bg-red-50' : 'bg-[#EFE9DC]'">
+                <x-admin-icon name="alert-triangle" class="w-6 h-6" x-bind:class="danger ? 'text-red-500' : 'text-[#D07A54]'" />
             </div>
             <div class="min-w-0">
                 <h3 class="font-semibold text-gray-900" x-text="title"></h3>
@@ -58,7 +58,7 @@
             </button>
             <button type="button" @click="proceed()"
                     class="px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-semibold text-white transition"
-                    :class="danger ? 'bg-red-600 hover:bg-red-700' : 'bg-[#2E4636] hover:bg-[#243a2c]'"
+                    :class="danger ? 'bg-red-600 hover:bg-red-700' : 'bg-[#1E3A4A] hover:bg-[#243a2c]'"
                     x-text="confirmLabel">
             </button>
         </div>

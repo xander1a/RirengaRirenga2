@@ -4,19 +4,19 @@
     @php
         $confirmed = $booking->status === 'confirmed';
         $cancelled = $booking->status === 'cancelled';
-        $color = $confirmed ? '#6E8C5A' : ($cancelled ? '#BF6B47' : '#C9A24B');
+        $color = $confirmed ? '#3F7C8A' : ($cancelled ? '#D07A54' : '#C99A52');
     @endphp
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;">
         <tr><td align="center">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden;">
                 <tr>
-                    <td style="background-color:#2E4636;padding:24px;text-align:center;">
-                        <span style="font-size:22px;font-weight:bold;color:#ffffff;">Byiza <span style="color:#C9A24B;">Lodge Ltd</span></span>
+                    <td style="background-color:#1E3A4A;padding:24px;text-align:center;">
+                        <span style="font-size:22px;font-weight:bold;color:#ffffff;">Rirenga <span style="color:#C99A52;">Eco-Lodge</span></span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding:32px;">
-                        <p style="margin:0 0 8px;color:#2B2A28;font-size:16px;">Hello {{ $booking->guest_name }},</p>
+                        <p style="margin:0 0 8px;color:#22201D;font-size:16px;">Hello {{ $booking->guest_name }},</p>
 
                         @if($confirmed)
                         <p style="margin:0 0 20px;color:#555;font-size:14px;line-height:1.6;">
@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td style="padding:16px;text-align:center;background:#F9F6EF;">
-                        <span style="color:#999;font-size:11px;">© {{ date('Y') }} Byiza Lodge Ltd · Rwanda</span>
+                        <span style="color:#999;font-size:11px;">© {{ date('Y') }} Rirenga · Rwanda</span>
                     </td>
                 </tr>
             </table>

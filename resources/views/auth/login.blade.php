@@ -17,7 +17,7 @@
             <div class="flex items-center justify-between">
                 <x-input-label for="password" :value="__('Password')" />
                 @if (Route::has('password.request'))
-                    <a class="text-sm hover:underline" style="color:#6E8C5A;" href="{{ route('password.request') }}">
+                    <a class="text-sm hover:underline" style="color:#3F7C8A;" href="{{ route('password.request') }}">
                         {{ __('Forgot password?') }}
                     </a>
                 @endif
@@ -34,7 +34,7 @@
 
         <!-- Remember Me -->
         <label for="remember_me" class="flex items-center select-none">
-            <input id="remember_me" type="checkbox" class="rounded border-gray-300 focus:ring-[#6E8C5A]" style="color:#2E4636;" name="remember">
+            <input id="remember_me" type="checkbox" class="rounded border-gray-300 focus:ring-[#3F7C8A]" style="color:#1E3A4A;" name="remember">
             <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
         </label>
 
@@ -45,6 +45,6 @@
 
     <p class="mt-8 text-center text-sm text-gray-500">
         {{ __("Don't have an account?") }}
-        <a href="{{ route('register') }}" class="font-semibold hover:underline" style="color:#2E4636;">{{ __('Sign up') }}</a>
+        <a href="{{ route('register') }}" class="font-semibold hover:underline" style="color:#1E3A4A;">{{ __('Sign up') }}</a>
     </p>
 </x-guest-layout>

@@ -10,7 +10,7 @@
     <div class="bg-white rounded-2xl p-8 shadow-sm">
         <div class="flex justify-between items-start mb-6">
             <div>
-                <h2 class="font-display text-2xl font-bold" style="color:#2E4636;">{{ $booking->reference }}</h2>
+                <h2 class="font-display text-2xl font-bold" style="color:#1E3A4A;">{{ $booking->reference }}</h2>
                 <p class="text-sm text-gray-400">Created {{ $booking->created_at->format('d M Y H:i') }}</p>
             </div>
             <div class="text-right">
@@ -36,7 +36,7 @@
             </div>
             <div class="space-y-3">
                 <h3 class="font-semibold text-gray-700 uppercase text-xs tracking-wide">Payment</h3>
-                <p>Total: <strong style="color:#C9A24B;">{{ money($booking->total_amount, $booking->currency) }}</strong></p>
+                <p>Total: <strong style="color:#C99A52;">{{ money($booking->total_amount, $booking->currency) }}</strong></p>
                 <p>Method: <strong class="capitalize">{{ str_replace('_',' ',$booking->payment_method ?? 'N/A') }}</strong></p>
                 <p>Status: <span class="px-2 py-0.5 rounded-full text-xs font-semibold capitalize {{ $booking->payment_status==='paid'||$booking->payment_status==='manual_confirmed'?'bg-green-100 text-green-700':'bg-yellow-100 text-yellow-700' }}">{{ str_replace('_',' ',$booking->payment_status) }}</span></p>
             </div>
@@ -49,7 +49,7 @@
         </div>
 
         @if($booking->status_reason)
-        <div class="mt-6 px-4 py-3 rounded-xl text-sm" style="background:#F9F6EF;border-left:4px solid #C9A24B;">
+        <div class="mt-6 px-4 py-3 rounded-xl text-sm" style="background:#F9F6EF;border-left:4px solid #C99A52;">
             <span class="font-semibold text-gray-700">Reason sent to guest:</span>
             <span class="text-gray-600">{{ $booking->status_reason }}</span>
         </div>
@@ -66,7 +66,7 @@
                         <option value="{{ $s }}" {{ $booking->status===$s?'selected':'' }}>{{ $s === 'cancelled' ? 'Declined / Cancelled' : ucfirst(str_replace('_',' ',$s)) }}</option>
                         @endforeach
                     </select>
-                    <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Update Status</button>
+                    <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#1E3A4A;">Update Status</button>
                 </div>
                 <div x-show="status === 'cancelled' || status === 'confirmed'" x-transition>
                     <label class="block text-xs text-gray-500 mb-1">
@@ -88,7 +88,7 @@
                 @csrf
                 <button type="button"
                         @click="$dispatch('confirm-action', { form: $el.closest('form'), title: 'Confirm payment manually?', message: 'This marks {{ $booking->reference }} as paid. Only do this once payment has actually been received.', danger: false, confirmLabel: 'Confirm Payment' })"
-                        class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#6E8C5A;">
+                        class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#3F7C8A;">
                     <x-admin-icon name="check" class="w-4 h-4" /> Confirm Payment Manually
                 </button>
             </form>

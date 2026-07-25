@@ -1,4 +1,4 @@
-@props(['icon' => 'leaf', 'bg' => '#6E8C5A20', 'color' => '#2E4636'])
+@props(['icon' => 'leaf', 'bg' => '#3F7C8A20', 'color' => '#1E3A4A'])
 
 <div {{ $attributes->merge(['class' => 'w-full h-full flex items-center justify-center icon-tile']) }}
      style="background:{{ $bg }}; color:{{ $color }};">

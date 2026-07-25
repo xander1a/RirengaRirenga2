@@ -3,10 +3,10 @@
 
 @section('content')
 <div class="flex gap-3 mb-6">
-    <a href="{{ route('admin.menu.index', 'restaurant') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium transition {{ $type==='restaurant'?'text-white':'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50' }}" style="{{ $type==='restaurant'?'background-color:#2E4636;':'' }}">
+    <a href="{{ route('admin.menu.index', 'restaurant') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium transition {{ $type==='restaurant'?'text-white':'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50' }}" style="{{ $type==='restaurant'?'background-color:#1E3A4A;':'' }}">
         <x-admin-icon name="utensils" class="w-4 h-4" /> Restaurant
     </a>
-    <a href="{{ route('admin.menu.index', 'bar') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium transition {{ $type==='bar'?'text-white':'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50' }}" style="{{ $type==='bar'?'background-color:#2E4636;':'' }}">
+    <a href="{{ route('admin.menu.index', 'bar') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium transition {{ $type==='bar'?'text-white':'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50' }}" style="{{ $type==='bar'?'background-color:#1E3A4A;':'' }}">
         <x-admin-icon name="archive" class="w-4 h-4" /> Bar
     </a>
 </div>
@@ -14,8 +14,8 @@
 {{-- Categories --}}
 <div class="bg-white rounded-2xl p-6 shadow-sm mb-6" x-data="{ open: false }">
     <div class="flex items-center justify-between">
-        <h2 class="font-semibold text-sm" style="color:#2E4636;">Categories</h2>
-        <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#BF6B47;">
+        <h2 class="font-semibold text-sm" style="color:#1E3A4A;">Categories</h2>
+        <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#D07A54;">
             <x-admin-icon name="plus" class="w-4 h-4" /> Add Category
         </button>
     </div>
@@ -37,7 +37,7 @@
                 <input type="number" name="sort_order" min="0" value="0" class="w-full rounded-xl border border-gray-200 px-3 py-2.5 min-h-[44px] text-sm">
             </div>
             <div class="flex items-end">
-                <button type="submit" class="w-full py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Add</button>
+                <button type="submit" class="w-full py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Add</button>
             </div>
         </form>
     </div>
@@ -45,7 +45,7 @@
     <div class="mt-4 flex flex-wrap gap-2">
         @forelse($categories as $cat)
         <div x-data="{ editing: false }" class="relative">
-            <div class="flex items-center gap-2 pl-3 pr-1.5 py-1.5 min-h-[40px] rounded-full text-sm" style="background:#2E463610;color:#2E4636;">
+            <div class="flex items-center gap-2 pl-3 pr-1.5 py-1.5 min-h-[40px] rounded-full text-sm" style="background:#1E3A4A10;color:#1E3A4A;">
                 <span>{{ $cat->name }}</span>
                 @if(!$cat->is_active)
                 <span class="text-xs text-gray-400">(hidden)</span>
@@ -83,7 +83,7 @@
                         <input type="checkbox" name="is_active" value="1" {{ $cat->is_active ? 'checked' : '' }}>
                         Visible on site
                     </label>
-                    <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#2E4636;">Save</button>
+                    <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#1E3A4A;">Save</button>
                 </form>
             </div>
         </div>
@@ -95,7 +95,7 @@
 
 {{-- Add Item Form --}}
 <div class="bg-white rounded-2xl p-6 shadow-sm mb-8" x-data="{ open: false }">
-    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#BF6B47;">
+    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#D07A54;">
         <x-admin-icon name="plus" class="w-4 h-4" /> Add New Item
     </button>
     <div x-show="open" x-transition class="mt-4">
@@ -136,7 +136,7 @@
                 <x-image-input name="image" />
             </div>
             <div class="sm:col-span-3 flex justify-end">
-                <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Add Item</button>
+                <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Add Item</button>
             </div>
         </form>
     </div>
@@ -146,8 +146,8 @@
 <div class="space-y-6">
     @foreach($categories as $cat)
     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-        <div class="px-6 py-4 border-b border-gray-100" style="background:#2E463610;">
-            <h3 class="font-semibold" style="color:#2E4636;">{{ $cat->name }}</h3>
+        <div class="px-6 py-4 border-b border-gray-100" style="background:#1E3A4A10;">
+            <h3 class="font-semibold" style="color:#1E3A4A;">{{ $cat->name }}</h3>
         </div>
         <div class="divide-y divide-gray-100">
             @foreach($cat->items as $item)
@@ -166,12 +166,12 @@
                             @if($item->description)<span class="text-gray-400 text-xs block">{{ $item->description }}</span>@endif
                         </div>
                     </div>
-                    <span class="font-semibold" style="color:#C9A24B;">{{ money($item->price, $item->currency) }}</span>
+                    <span class="font-semibold" style="color:#C99A52;">{{ money($item->price, $item->currency) }}</span>
                     <span class="px-2 py-0.5 rounded-full text-xs {{ $item->is_available?'bg-green-100 text-green-700':'bg-red-100 text-red-700' }}">
                         {{ $item->is_available?'Available':'Hidden' }}
                     </span>
                     <div class="flex gap-1">
-                        <button @click="editing = !editing" class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition" style="color:#BF6B47;" aria-label="Edit {{ $item->name }}">
+                        <button @click="editing = !editing" class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition" style="color:#D07A54;" aria-label="Edit {{ $item->name }}">
                             <x-admin-icon name="pencil" class="w-4 h-4" />
                         </button>
                         <form action="{{ route('admin.menu.item.destroy', $item) }}" method="POST">
@@ -220,7 +220,7 @@
                             Available
                         </label>
                         <div class="sm:col-span-3 flex justify-end">
-                            <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Save Changes</button>
+                            <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#1E3A4A;">Save Changes</button>
                         </div>
                     </form>
                 </div>

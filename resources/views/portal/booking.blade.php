@@ -7,7 +7,7 @@
         <div class="bg-white rounded-2xl p-8 shadow-sm">
             <div class="flex justify-between items-start mb-6">
                 <div>
-                    <h1 class="font-display text-2xl font-bold" style="color:#2E4636;">{{ $booking->reference }}</h1>
+                    <h1 class="font-display text-2xl font-bold" style="color:#1E3A4A;">{{ $booking->reference }}</h1>
                     <p class="text-sm text-gray-400 mt-1">Booked {{ $booking->created_at->format('d M Y') }}</p>
                 </div>
                 <span class="px-3 py-1 rounded-full text-sm font-semibold capitalize {{ $booking->status==='confirmed'?'bg-green-100 text-green-700':($booking->status==='cancelled'?'bg-red-100 text-red-700':'bg-yellow-100 text-yellow-700') }}">
@@ -16,12 +16,12 @@
             </div>
 
             @if($booking->status === 'confirmed')
-            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#6E8C5A15;border:1px solid #6E8C5A40;color:#2E4636;">
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#3F7C8A15;border:1px solid #3F7C8A40;color:#1E3A4A;">
                 Your booking is confirmed — we look forward to welcoming you!
                 @if($booking->status_reason)<div class="mt-1 text-gray-600">{{ $booking->status_reason }}</div>@endif
             </div>
             @elseif($booking->status === 'cancelled')
-            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#BF6B4712;border:1px solid #BF6B4740;color:#BF6B47;">
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#D07A5412;border:1px solid #D07A5440;color:#D07A54;">
                 <p class="font-semibold">This booking was declined.</p>
                 @if($booking->status_reason)
                 <p class="mt-1 text-gray-600"><span class="font-medium">Reason:</span> {{ $booking->status_reason }}</p>
@@ -29,7 +29,7 @@
                 <p class="mt-1 text-gray-500">A copy of this was sent to your email. Contact us if you have questions.</p>
             </div>
             @elseif($booking->status === 'pending')
-            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#C9A24B12;border:1px solid #C9A24B40;color:#a9852f;">
+            <div class="mb-6 px-4 py-3 rounded-xl text-sm" style="background:#C99A5212;border:1px solid #C99A5240;color:#a9852f;">
                 Your booking is awaiting confirmation — we'll email you as soon as it's reviewed.
             </div>
             @endif
@@ -49,7 +49,7 @@
                 @endforeach
                 <div class="flex justify-between py-2 border-b border-gray-100">
                     <span class="text-gray-500">Total</span>
-                    <span class="font-bold text-base" style="color:#C9A24B;">{{ money($booking->total_amount, $booking->currency) }}</span>
+                    <span class="font-bold text-base" style="color:#C99A52;">{{ money($booking->total_amount, $booking->currency) }}</span>
                 </div>
                 <div class="flex justify-between py-2">
                     <span class="text-gray-500">Payment Status</span>

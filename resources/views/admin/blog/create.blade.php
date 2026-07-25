@@ -23,7 +23,7 @@
                 <span class="text-sm font-medium">Publish immediately</span>
             </label>
             <div class="flex gap-4">
-                <button type="submit" class="px-6 py-3 rounded-xl text-white font-semibold" style="background-color:#BF6B47;">Save Post</button>
+                <button type="submit" class="px-6 py-3 rounded-xl text-white font-semibold" style="background-color:#D07A54;">Save Post</button>
                 <a href="{{ route('admin.blog.index') }}" class="px-6 py-3 rounded-xl border border-gray-200 text-gray-700 text-sm hover:bg-gray-50">Cancel</a>
             </div>
         </form>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'byiza-v2';
+const CACHE_NAME = 'rirenga-v1';
 const OFFLINE_FALLBACK = '/';
 
 self.addEventListener('install', event => {

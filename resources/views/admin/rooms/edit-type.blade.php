@@ -5,7 +5,7 @@
 <div class="max-w-2xl mx-auto">
     <a href="{{ route('admin.rooms.index') }}" class="text-sm text-gray-500 hover:text-gray-700 mb-4 inline-block">← Back to Rooms</a>
     <div class="bg-white rounded-2xl p-8 shadow-sm">
-        <h2 class="font-display text-2xl font-bold mb-6" style="color:#2E4636;">{{ $roomType->name }}</h2>
+        <h2 class="font-display text-2xl font-bold mb-6" style="color:#1E3A4A;">{{ $roomType->name }}</h2>
         <form action="{{ route('admin.rooms.type.update', $roomType) }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf
             <div class="grid sm:grid-cols-2 gap-5">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="flex gap-4">
-                <button type="submit" class="px-6 py-3 rounded-xl text-white font-semibold transition hover:opacity-90" style="background-color:#BF6B47;">Save Changes</button>
+                <button type="submit" class="px-6 py-3 rounded-xl text-white font-semibold transition hover:opacity-90" style="background-color:#D07A54;">Save Changes</button>
                 <a href="{{ route('admin.rooms.index') }}" class="px-6 py-3 rounded-xl border border-gray-200 text-gray-700 text-sm hover:bg-gray-50">Cancel</a>
             </div>
         </form>

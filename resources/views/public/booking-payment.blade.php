@@ -3,108 +3,71 @@
 @section('title', 'Payment')
 
 @section('content')
-<section class="py-16 px-4" style="background-color:#2E4636;">
-    <div class="max-w-7xl mx-auto text-center text-white">
-        <h1 class="font-display text-4xl font-bold">Choose Payment Method</h1>
+<section class="px-4 py-20 sm:py-24" style="background-color:#1E3A4A;">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="ed-title ed-title--light" style="font-size:clamp(2.25rem,5vw,3.25rem);">Choose Payment Method</h1>
     </div>
 </section>
 
-<section class="py-16 px-4">
+<section class="py-24 px-4">
     <div class="max-w-2xl mx-auto">
         {{-- Summary --}}
-        <div class="bg-white rounded-2xl p-6 shadow-sm mb-6">
-            <h3 class="font-semibold mb-3" style="color:#2E4636;">Booking Summary</h3>
-            <div class="text-sm text-gray-600 space-y-1">
-                <div class="flex justify-between"><span>Room:</span><span class="font-medium">{{ $roomType->name }}</span></div>
-                <div class="flex justify-between"><span>Guest:</span><span class="font-medium">{{ $draft['guest_name'] }}</span></div>
-                <div class="flex justify-between"><span>Check-in:</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_in'])->format('d M Y') }}</span></div>
-                <div class="flex justify-between"><span>Check-out:</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_out'])->format('d M Y') }}</span></div>
-                <div class="flex justify-between text-base font-bold mt-3 pt-3 border-t">
-                    <span>Total:</span><span style="color:#C9A24B;">{{ money($draft['total_amount'], $draft['currency'] ?? 'RWF') }}</span>
+        <div class="p-7 mb-8" style="background:#EFE9DC;border-radius:2px;">
+            <h3 class="ed-kicker mb-4">Booking Summary</h3>
+            <div class="text-sm text-gray-700 space-y-2">
+                <div class="flex justify-between"><span class="text-gray-500">Room</span><span class="font-medium">{{ $roomType->name }}</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">Guest</span><span class="font-medium">{{ $draft['guest_name'] }}</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">Check-in</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_in'])->format('d M Y') }}</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">Check-out</span><span class="font-medium">{{ \Carbon\Carbon::parse($draft['check_out'])->format('d M Y') }}</span></div>
+                <div class="flex justify-between text-base font-bold mt-3 pt-3" style="border-top:1px solid rgba(34,32,29,0.15);">
+                    <span>Total</span><span class="font-display" style="color:#C99A52;">{{ money($draft['total_amount'], $draft['currency'] ?? 'RWF') }}</span>
                 </div>
             </div>
         </div>
 
         <form action="{{ route('booking.payment.process') }}" method="POST" x-data="{ method: '' }">
             @csrf
-            <div class="space-y-4 mb-6">
-                {{-- Paypack --}}
-                <label class="flex items-center gap-4 p-5 rounded-2xl border-2 cursor-pointer transition"
-                       :class="method === 'paypack' ? 'border-terracotta bg-terracotta/5' : 'border-gray-200 bg-white'">
-                    <input type="radio" name="payment_method" value="paypack" x-model="method" class="hidden">
-                    <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background:#BF6B4715;">
-                        <x-admin-icon name="banknotes" class="w-5 h-5" style="color:#BF6B47;" />
+            @php
+                $methods = [
+                    ['value'=>'paypack','icon'=>'banknotes','iconbg'=>'#D07A5415','iconcolor'=>'#D07A54','title'=>'Mobile Money (Paypack)','desc'=>"Pay with MTN or Airtel mobile money. You'll receive a payment prompt on your phone."],
+                    ['value'=>'bank_transfer','icon'=>'building','iconbg'=>'#1E3A4A15','iconcolor'=>'#1E3A4A','title'=>'Bank Transfer','desc'=>'Transfer to our account and upload proof. Staff will confirm manually.'],
+                    ['value'=>'card','icon'=>'archive','iconbg'=>'#C99A5215','iconcolor'=>'#C99A52','title'=>'Credit / Debit Card','desc'=>'Secure card payment via Flutterwave.'],
+                    ['value'=>'pay_on_arrival','icon'=>'check','iconbg'=>'#3F7C8A15','iconcolor'=>'#3F7C8A','title'=>'Pay on Arrival','desc'=>'Reserve now, pay when you check in. Subject to availability confirmation.'],
+                ];
+            @endphp
+            <div class="space-y-3 mb-6">
+                @foreach($methods as $m)
+                <label class="flex items-center gap-4 p-5 cursor-pointer transition"
+                       style="border-radius:2px;"
+                       :style="method === '{{ $m['value'] }}' ? 'border:1px solid #D07A54;background:#D07A540a;' : 'border:1px solid rgba(34,32,29,0.14);background:#fff;'">
+                    <input type="radio" name="payment_method" value="{{ $m['value'] }}" x-model="method" class="hidden">
+                    <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background:{{ $m['iconbg'] }};">
+                        <x-admin-icon name="{{ $m['icon'] }}" class="w-5 h-5" style="color:{{ $m['iconcolor'] }};" />
                     </div>
                     <div>
-                        <p class="font-semibold">Mobile Money (Paypack)</p>
-                        <p class="text-sm text-gray-500">Pay with MTN or Airtel mobile money. You'll receive a payment prompt on your phone.</p>
+                        <p class="font-display font-bold" style="color:#22201D;">{{ $m['title'] }}</p>
+                        <p class="text-sm text-gray-500">{{ $m['desc'] }}</p>
                     </div>
-                    <div class="ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center"
-                         :class="method === 'paypack' ? 'border-terracotta' : 'border-gray-300'">
-                        <div x-show="method === 'paypack'" class="w-3 h-3 rounded-full" style="background:#BF6B47;"></div>
+                    <div class="ml-auto w-5 h-5 rounded-full border flex items-center justify-center"
+                         :style="method === '{{ $m['value'] }}' ? 'border-color:#D07A54;' : 'border-color:#cbd5e1;'">
+                        <div x-show="method === '{{ $m['value'] }}'" class="w-2.5 h-2.5 rounded-full" style="background:#D07A54;"></div>
                     </div>
                 </label>
-                <div x-show="method === 'paypack'" x-transition class="-mt-2 px-5">
-                    <label class="block text-sm font-medium mb-1">Mobile Money Phone Number *</label>
+                @if($m['value'] === 'paypack')
+                <div x-show="method === 'paypack'" x-transition class="px-5 pt-1 pb-2">
+                    <label class="block text-[0.7rem] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">Mobile Money Phone Number *</label>
                     <input type="tel" name="phone" placeholder="078xxxxxxx" value="{{ old('phone', $draft['guest_phone'] ?? '') }}"
-                           class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2" style="--tw-ring-color:#BF6B47;">
+                           class="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-[#D07A54]" style="border-radius:2px;">
                 </div>
-
-                {{-- Bank Transfer --}}
-                <label class="flex items-center gap-4 p-5 rounded-2xl border-2 cursor-pointer transition"
-                       :class="method === 'bank_transfer' ? 'border-terracotta bg-terracotta/5' : 'border-gray-200 bg-white'">
-                    <input type="radio" name="payment_method" value="bank_transfer" x-model="method" class="hidden">
-                    <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background:#2E463615;">
-                        <x-admin-icon name="building" class="w-5 h-5" style="color:#2E4636;" />
-                    </div>
-                    <div>
-                        <p class="font-semibold">Bank Transfer</p>
-                        <p class="text-sm text-gray-500">Transfer to our account and upload proof. Staff will confirm manually.</p>
-                    </div>
-                    <div class="ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center" :class="method === 'bank_transfer' ? 'border-terracotta' : 'border-gray-300'">
-                        <div x-show="method === 'bank_transfer'" class="w-3 h-3 rounded-full" style="background:#BF6B47;"></div>
-                    </div>
-                </label>
-
-                {{-- Card --}}
-                <label class="flex items-center gap-4 p-5 rounded-2xl border-2 cursor-pointer transition"
-                       :class="method === 'card' ? 'border-terracotta bg-terracotta/5' : 'border-gray-200 bg-white'">
-                    <input type="radio" name="payment_method" value="card" x-model="method" class="hidden">
-                    <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background:#C9A24B15;">
-                        <x-admin-icon name="archive" class="w-5 h-5" style="color:#C9A24B;" />
-                    </div>
-                    <div>
-                        <p class="font-semibold">Credit / Debit Card</p>
-                        <p class="text-sm text-gray-500">Secure card payment via Flutterwave.</p>
-                        {{-- TODO: activate when Flutterwave credentials are configured --}}
-                    </div>
-                    <div class="ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center" :class="method === 'card' ? 'border-terracotta' : 'border-gray-300'">
-                        <div x-show="method === 'card'" class="w-3 h-3 rounded-full" style="background:#BF6B47;"></div>
-                    </div>
-                </label>
-
-                {{-- Pay on Arrival --}}
-                <label class="flex items-center gap-4 p-5 rounded-2xl border-2 cursor-pointer transition"
-                       :class="method === 'pay_on_arrival' ? 'border-terracotta bg-terracotta/5' : 'border-gray-200 bg-white'">
-                    <input type="radio" name="payment_method" value="pay_on_arrival" x-model="method" class="hidden">
-                    <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background:#6E8C5A15;">
-                        <x-admin-icon name="check" class="w-5 h-5" style="color:#6E8C5A;" />
-                    </div>
-                    <div>
-                        <p class="font-semibold">Pay on Arrival</p>
-                        <p class="text-sm text-gray-500">Reserve now, pay when you check in. Subject to availability confirmation.</p>
-                    </div>
-                    <div class="ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center" :class="method === 'pay_on_arrival' ? 'border-terracotta' : 'border-gray-300'">
-                        <div x-show="method === 'pay_on_arrival'" class="w-3 h-3 rounded-full" style="background:#BF6B47;"></div>
-                    </div>
-                </label>
+                @endif
+                @endforeach
             </div>
 
             {{-- Bank details (shown when bank_transfer selected) --}}
-            <div x-show="method === 'bank_transfer'" class="rounded-2xl p-5 mb-6 text-sm" style="background:#F1E9D7;">
-                <p class="font-semibold mb-2" style="color:#2E4636;">Bank Transfer Details</p>
+            <div x-show="method === 'bank_transfer'" x-cloak class="p-5 mb-6 text-sm" style="background:#EFE9DC;border-radius:2px;">
+                <p class="ed-kicker mb-3">Bank Transfer Details</p>
                 <p>Bank: <strong>Bank of Kigali</strong></p>
-                <p>Account Name: <strong>Byiza Lodge Ltd</strong></p>
+                <p>Account Name: <strong>Rirenga</strong></p>
                 <p>Account Number: <strong>TODO: Add account number</strong></p>
                 <p>SWIFT/BIC: <strong>TODO: Add SWIFT code</strong></p>
                 <p class="mt-2 text-gray-500">Please use your booking reference as the payment description. Email proof to izubatreat@gmail.com.</p>
@@ -115,8 +78,7 @@
             @endif
 
             <button type="submit" :disabled="!method"
-                    class="w-full py-4 rounded-xl text-white font-semibold text-lg transition hover:opacity-90 disabled:opacity-40"
-                    style="background-color:#BF6B47;">
+                    class="ed-btn ed-btn-solid w-full disabled:opacity-40" style="padding-top:1.1rem;padding-bottom:1.1rem;">
                 Confirm Booking
             </button>
             <p class="text-xs text-center text-gray-400 mt-3">By confirming you agree to our cancellation and booking policy.</p>

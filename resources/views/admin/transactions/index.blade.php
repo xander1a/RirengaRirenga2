@@ -6,24 +6,24 @@
 {{-- Summary --}}
 <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8">
     <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#6E8C5A18;">
-            <x-admin-icon name="banknotes" class="w-5 h-5" style="color:#6E8C5A;" />
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#3F7C8A18;">
+            <x-admin-icon name="banknotes" class="w-5 h-5" style="color:#3F7C8A;" />
         </div>
-        <p class="text-2xl font-bold" style="color:#6E8C5A;">{{ frw($totals['completed'], 2) }}</p>
+        <p class="text-2xl font-bold" style="color:#3F7C8A;">{{ frw($totals['completed'], 2) }}</p>
         <p class="text-xs text-gray-500 mt-1">Total Completed</p>
     </div>
     <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#C9A24B18;">
-            <x-admin-icon name="calendar" class="w-5 h-5" style="color:#C9A24B;" />
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#C99A5218;">
+            <x-admin-icon name="calendar" class="w-5 h-5" style="color:#C99A52;" />
         </div>
-        <p class="text-2xl font-bold" style="color:#C9A24B;">{{ $totals['pending'] }}</p>
+        <p class="text-2xl font-bold" style="color:#C99A52;">{{ $totals['pending'] }}</p>
         <p class="text-xs text-gray-500 mt-1">Pending / Processing</p>
     </div>
     <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm col-span-2 lg:col-span-1">
-        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#BF6B4718;">
-            <x-admin-icon name="alert-triangle" class="w-5 h-5" style="color:#BF6B47;" />
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style="background:#D07A5418;">
+            <x-admin-icon name="alert-triangle" class="w-5 h-5" style="color:#D07A54;" />
         </div>
-        <p class="text-2xl font-bold" style="color:#BF6B47;">{{ $totals['failed'] }}</p>
+        <p class="text-2xl font-bold" style="color:#D07A54;">{{ $totals['failed'] }}</p>
         <p class="text-xs text-gray-500 mt-1">Failed</p>
     </div>
 </div>
@@ -31,7 +31,7 @@
 {{-- Filters --}}
 <form method="GET" class="flex flex-wrap gap-3 mb-6">
     <input type="text" name="search" placeholder="Reference / Guest" value="{{ request('search') }}"
-           class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm focus:outline-none focus:border-[#6E8C5A] focus:ring-[#6E8C5A]">
+           class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm focus:outline-none focus:border-[#3F7C8A] focus:ring-[#3F7C8A]">
     <select name="gateway" class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm">
         <option value="">All gateways</option>
         @foreach(['paypack','momo','bank_transfer','card','pay_on_arrival'] as $g)
@@ -44,7 +44,7 @@
         <option value="{{ $s }}" {{ request('status')===$s?'selected':'' }}>{{ ucfirst($s) }}</option>
         @endforeach
     </select>
-    <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Filter</button>
+    <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#1E3A4A;">Filter</button>
 </form>
 
 <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
@@ -66,7 +66,7 @@
                     <td class="px-5 py-3 font-mono text-xs">{{ $tx->gateway_reference ?? '—' }}</td>
                     <td class="px-5 py-3">
                         @if($tx->booking)
-                        <a href="{{ route('admin.bookings.show', $tx->booking) }}" class="font-medium hover:underline" style="color:#BF6B47;">{{ $tx->booking->reference }}</a>
+                        <a href="{{ route('admin.bookings.show', $tx->booking) }}" class="font-medium hover:underline" style="color:#D07A54;">{{ $tx->booking->reference }}</a>
                         <div class="text-xs text-gray-400">{{ $tx->booking->guest_name }}</div>
                         @else
                         <span class="text-gray-400">—</span>

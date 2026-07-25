@@ -8,12 +8,12 @@
 
 @theme {
     /* Brand Colors */
-    --color-forest: #2E4636;
-    --color-sage: #6E8C5A;
-    --color-terracotta: #BF6B47;
-    --color-sand: #F1E9D7;
-    --color-gold: #C9A24B;
-    --color-charcoal: #2B2A28;
+    --color-forest: #1E3A4A;
+    --color-sage: #3F7C8A;
+    --color-terracotta: #D07A54;
+    --color-sand: #EFE9DC;
+    --color-gold: #C99A52;
+    --color-charcoal: #22201D;
 
     /* Fonts */
     --font-display: 'Playfair Display', Georgia, serif;
@@ -32,6 +32,122 @@ h1, h2, h3, .font-display {
 }
 
 [x-cloak] { display: none !important; }
+
+/* ===========================================================
+   Editorial / magazine design layer (public site)
+   =========================================================== */
+
+/* Kicker — small-caps letter-spaced label with a leading hairline rule */
+.ed-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+}
+.ed-kicker::before {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.7;
+}
+.ed-kicker--center { justify-content: center; }
+.ed-kicker--light { color: var(--color-gold); }
+
+/* Editorial display headline — tighter leading, serif, optional italic accent */
+.ed-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--color-forest);
+}
+.ed-title em { font-style: italic; font-weight: 400; }
+.ed-title--light { color: #fff; }
+
+/* Lede paragraph — larger, lighter intro copy */
+.ed-lede {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    font-weight: 300;
+    color: #4b4a45;
+}
+
+/* Hairline rules */
+.ed-rule { height: 1px; width: 100%; background: rgba(34,32,29,0.14); }
+.ed-rule-gold { height: 2px; width: 3.5rem; background: var(--color-gold); }
+
+/* Editorial buttons — squared, uppercase, letter-spaced */
+.ed-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.ed-btn-solid { background: var(--color-terracotta); color: #fff; }
+.ed-btn-solid:hover { background: #b8613f; }
+.ed-btn-outline {
+    background: transparent;
+    color: var(--color-forest);
+    border: 1px solid var(--color-forest);
+}
+.ed-btn-outline:hover { background: var(--color-forest); color: #fff; }
+.ed-btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
+.ed-btn-outline-light:hover { background: #fff; color: var(--color-forest); }
+
+/* Animated arrow link */
+.ed-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+    transition: gap 0.25s ease;
+}
+.ed-arrow:hover { gap: 0.85rem; }
+.ed-arrow svg { width: 1.1rem; height: 1.1rem; }
+
+/* Section index number (01, 02 …) — big faint serif numeral */
+.ed-index {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+}
+
+/* Drop-cap for editorial body intros */
+.ed-dropcap::first-letter {
+    font-family: var(--font-display);
+    font-size: 3.4em;
+    font-weight: 700;
+    float: left;
+    line-height: 0.8;
+    padding: 0.05em 0.12em 0 0;
+    color: var(--color-terracotta);
+}
+
+/* Framed image — thin editorial border instead of heavy shadow */
+.ed-frame { border-radius: 2px; overflow: hidden; }
+.ed-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* Scroll-reveal */
 [data-reveal] {
@@ -62,7 +178,7 @@ h1, h2, h3, .font-display {
 .admin-scroll,
 .admin-main {
     scrollbar-width: thin;
-    scrollbar-color: #6E8C5A40 transparent;
+    scrollbar-color: #3F7C8A40 transparent;
 }
 .admin-scroll::-webkit-scrollbar,
 .admin-main::-webkit-scrollbar {
@@ -75,12 +191,12 @@ h1, h2, h3, .font-display {
 }
 .admin-scroll::-webkit-scrollbar-thumb,
 .admin-main::-webkit-scrollbar-thumb {
-    background-color: #6E8C5A40;
+    background-color: #3F7C8A40;
     border-radius: 999px;
 }
 .admin-scroll::-webkit-scrollbar-thumb:hover,
 .admin-main::-webkit-scrollbar-thumb:hover {
-    background-color: #6E8C5A80;
+    background-color: #3F7C8A80;
 }
 .admin-scroll::-webkit-scrollbar-button,
 .admin-main::-webkit-scrollbar-button {
@@ -92,20 +208,20 @@ h1, h2, h3, .font-display {
 /* Sidebar scrollbar — track matches the forest sidebar background so it blends in */
 .sidebar-scroll {
     scrollbar-width: thin;
-    scrollbar-color: #C9A24B66 #2E4636;
+    scrollbar-color: #C99A5266 #1E3A4A;
 }
 .sidebar-scroll::-webkit-scrollbar {
     width: 6px;
 }
 .sidebar-scroll::-webkit-scrollbar-track {
-    background-color: #2E4636;
+    background-color: #1E3A4A;
 }
 .sidebar-scroll::-webkit-scrollbar-thumb {
-    background-color: #C9A24B66;
+    background-color: #C99A5266;
     border-radius: 999px;
 }
 .sidebar-scroll::-webkit-scrollbar-thumb:hover {
-    background-color: #C9A24B99;
+    background-color: #C99A5299;
 }
 .sidebar-scroll::-webkit-scrollbar-button {
     display: none;

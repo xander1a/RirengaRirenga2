@@ -1,6 +1,6 @@
 <x-guest-layout :title="__('Set a new password')" subtitle="Enter the 6-digit code we emailed you, then choose a new password.">
     @if (session('status'))
-        <div class="mb-4 px-4 py-3 rounded-xl text-sm" style="background:#6E8C5A20;color:#2E4636;border:1px solid #6E8C5A;">
+        <div class="mb-4 px-4 py-3 rounded-xl text-sm" style="background:#3F7C8A20;color:#1E3A4A;border:1px solid #3F7C8A;">
             {{ session('status') }}
         </div>
     @endif
@@ -45,7 +45,7 @@
 
         <p class="text-center text-sm text-gray-500">
             Didn't get the code?
-            <a href="{{ route('password.request') }}" class="font-semibold hover:underline" style="color:#BF6B47;">Send again</a>
+            <a href="{{ route('password.request') }}" class="font-semibold hover:underline" style="color:#D07A54;">Send again</a>
         </p>
     </form>
 </x-guest-layout>

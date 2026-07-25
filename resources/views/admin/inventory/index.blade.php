@@ -4,7 +4,7 @@
 @section('content')
 {{-- Add Item --}}
 <div class="bg-white rounded-2xl p-6 shadow-sm mb-6" x-data="{ open: false }">
-    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#BF6B47;">
+    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#D07A54;">
         <x-admin-icon name="plus" class="w-4 h-4" /> Add Item
     </button>
     <div x-show="open" x-transition class="mt-4">
@@ -17,7 +17,7 @@
             <div><label class="block text-xs mb-1">Low Stock Threshold</label><input type="number" name="low_stock_threshold" min="0" step="0.01" required value="5" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm"></div>
             <div><label class="block text-xs mb-1">Supplier</label><input type="text" name="supplier" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm"></div>
             <div class="sm:col-span-2 flex items-end">
-                <button type="submit" class="px-5 py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Add</button>
+                <button type="submit" class="px-5 py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Add</button>
             </div>
         </form>
     </div>
@@ -58,7 +58,7 @@
                             <input type="number" name="quantity" value="{{ $item->quantity }}" step="0.01" min="0"
                                    class="w-24 rounded-lg border border-gray-200 px-2 py-2 min-h-[40px] text-xs">
                             <input type="hidden" name="low_stock_threshold" value="{{ $item->low_stock_threshold }}">
-                            <button type="submit" class="text-xs px-3 py-2 min-h-[40px] rounded-lg text-white font-semibold" style="background-color:#2E4636;">Update</button>
+                            <button type="submit" class="text-xs px-3 py-2 min-h-[40px] rounded-lg text-white font-semibold" style="background-color:#1E3A4A;">Update</button>
                         </form>
                     </td>
                 </tr>

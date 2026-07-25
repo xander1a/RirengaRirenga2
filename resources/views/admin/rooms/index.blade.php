@@ -24,7 +24,7 @@
                     @foreach($roomTypes as $rt)
                     <tr>
                         <td class="px-5 py-3 font-medium">{{ $rt->name }}</td>
-                        <td class="px-5 py-3" style="color:#C9A24B;font-weight:600;">{{ money($rt->price_per_night, $rt->currency) }}</td>
+                        <td class="px-5 py-3" style="color:#C99A52;font-weight:600;">{{ money($rt->price_per_night, $rt->currency) }}</td>
                         <td class="px-5 py-3 text-gray-600">{{ $rt->max_guests }}</td>
                         <td class="px-5 py-3 text-gray-600">{{ $rt->rooms->count() }}</td>
                         <td class="px-5 py-3">
@@ -34,7 +34,7 @@
                         </td>
                         <td class="px-5 py-3">
                             <a href="{{ route('admin.rooms.type.edit', $rt) }}"
-                               class="inline-flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded-lg text-xs font-medium hover:bg-gray-100 transition" style="color:#BF6B47;">
+                               class="inline-flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded-lg text-xs font-medium hover:bg-gray-100 transition" style="color:#D07A54;">
                                 <x-admin-icon name="pencil" class="w-3.5 h-3.5" /> Edit
                             </a>
                         </td>
@@ -49,7 +49,7 @@
     <div class="bg-white rounded-2xl shadow-sm overflow-hidden" x-data="{ open: false }">
         <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 class="font-semibold text-gray-800">Physical Rooms — Status</h2>
-            <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#BF6B47;">
+            <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#D07A54;">
                 <x-admin-icon name="plus" class="w-4 h-4" /> Add Room
             </button>
         </div>
@@ -86,7 +86,7 @@
                     <x-image-input name="image" />
                 </div>
                 <div class="sm:col-span-3 flex justify-end">
-                    <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Add Room</button>
+                    <button type="submit" class="px-6 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Add Room</button>
                 </div>
             </form>
         </div>
@@ -136,7 +136,7 @@
                                         <option value="{{ $s }}" {{ $room->status===$s?'selected':'' }}>{{ ucfirst($s) }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="text-xs px-3 py-2 min-h-[40px] rounded-lg text-white font-semibold" style="background-color:#2E4636;">Update</button>
+                                    <button type="submit" class="text-xs px-3 py-2 min-h-[40px] rounded-lg text-white font-semibold" style="background-color:#1E3A4A;">Update</button>
                                 </form>
                                 <form action="{{ route('admin.rooms.destroy', $room) }}" method="POST">
                                     @csrf @method('DELETE')

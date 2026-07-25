@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#2E4636">
+    <meta name="theme-color" content="#1E3A4A">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin') — Byiza Lodge Admin</title>
+    <title>@yield('title', 'Admin') — Rirenga Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -37,10 +37,10 @@
 
 <div class="flex h-full">
     {{-- Sidebar (desktop only) --}}
-    <aside class="hidden lg:flex w-72 flex-col" style="background-color:#2E4636;">
+    <aside class="hidden lg:flex w-72 flex-col" style="background-color:#1E3A4A;">
         <div class="p-5 border-b border-white/10">
             <a href="{{ route('home') }}" class="font-display text-xl font-bold text-white tracking-wide">
-                Byiza Lodge <span class="font-sans text-xs font-normal text-white/50 align-middle">Admin</span>
+                Rirenga <span class="font-sans text-xs font-normal text-white/50 align-middle">Admin</span>
             </a>
         </div>
         <nav class="flex-1 overflow-y-auto sidebar-scroll p-3 space-y-1">
@@ -50,9 +50,9 @@
                class="relative flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-xl text-sm font-medium transition
                       {{ $active ? 'bg-white/15 text-white' : 'text-white/65 hover:bg-white/10 hover:text-white' }}">
                 @if($active)
-                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-1 rounded-r-full" style="background:#C9A24B;"></span>
+                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-1 rounded-r-full" style="background:#C99A52;"></span>
                 @endif
-                <x-admin-icon :name="$link['icon']" class="w-5 h-5 shrink-0 {{ $active ? 'text-[#C9A24B]' : '' }}" />
+                <x-admin-icon :name="$link['icon']" class="w-5 h-5 shrink-0 {{ $active ? 'text-[#C99A52]' : '' }}" />
                 {{ $link['label'] }}
             </a>
             @endforeach
@@ -64,7 +64,7 @@
         {{-- Top bar --}}
         <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200 px-4 sm:px-6 py-3 flex justify-between items-center gap-3">
             <div class="flex items-center gap-2.5 min-w-0">
-                <span class="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-white font-display font-bold text-sm shrink-0" style="background:#2E4636;">B</span>
+                <span class="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-white font-display font-bold text-sm shrink-0" style="background:#1E3A4A;">B</span>
                 <h1 class="text-base sm:text-lg font-semibold text-gray-800 truncate">@yield('title', 'Dashboard')</h1>
             </div>
 
@@ -73,7 +73,7 @@
                 <button @click="open = !open"
                         class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 min-h-[44px] rounded-full hover:bg-gray-100 transition"
                         :aria-expanded="open">
-                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white shrink-0" style="background:#6E8C5A;">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white shrink-0" style="background:#3F7C8A;">
                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                     </div>
                     <span class="hidden sm:flex flex-col items-start leading-tight">
@@ -107,7 +107,7 @@
 
         <main class="flex-1 overflow-auto admin-main p-4 sm:p-6 pb-28 lg:pb-6">
             @if(session('success'))
-            <div class="mb-4 px-4 py-3 rounded-xl text-sm flex items-center gap-2" style="background:#6E8C5A20;color:#2E4636;border:1px solid #6E8C5A;">
+            <div class="mb-4 px-4 py-3 rounded-xl text-sm flex items-center gap-2" style="background:#3F7C8A20;color:#1E3A4A;border:1px solid #3F7C8A;">
                 <x-admin-icon name="check" class="w-4 h-4 shrink-0" />
                 {{ session('success') }}
             </div>
@@ -137,9 +137,9 @@
         @php $active = $isActive($link['route']); @endphp
         <a href="{{ route($link['route']) }}"
            class="flex flex-col items-center justify-center gap-1 py-2 min-h-[56px] text-[10px] font-medium transition {{ $active ? '' : 'text-gray-400 active:text-gray-600' }}"
-           style="{{ $active ? 'color:#2E4636;' : '' }}">
-            <span class="relative flex items-center justify-center w-12 h-7 rounded-full transition" style="{{ $active ? 'background:#2E463614;' : '' }}">
-                <x-admin-icon :name="$link['icon']" class="w-5 h-5" style="{{ $active ? 'color:#C9A24B;' : '' }}" />
+           style="{{ $active ? 'color:#1E3A4A;' : '' }}">
+            <span class="relative flex items-center justify-center w-12 h-7 rounded-full transition" style="{{ $active ? 'background:#1E3A4A14;' : '' }}">
+                <x-admin-icon :name="$link['icon']" class="w-5 h-5" style="{{ $active ? 'color:#C99A52;' : '' }}" />
             </span>
             {{ $link['label'] }}
         </a>
@@ -147,9 +147,9 @@
         @php $moreActive = ! collect($tabLinks)->contains(fn ($l) => $isActive($l['route'])); @endphp
         <button @click="moreOpen = true"
                 class="flex flex-col items-center justify-center gap-1 py-2 min-h-[56px] text-[10px] font-medium {{ $moreActive ? '' : 'text-gray-400 active:text-gray-600' }}"
-                style="{{ $moreActive ? 'color:#2E4636;' : '' }}">
-            <span class="flex items-center justify-center w-12 h-7 rounded-full" style="{{ $moreActive ? 'background:#2E463614;' : '' }}">
-                <x-admin-icon name="menu" class="w-5 h-5" style="{{ $moreActive ? 'color:#C9A24B;' : '' }}" />
+                style="{{ $moreActive ? 'color:#1E3A4A;' : '' }}">
+            <span class="flex items-center justify-center w-12 h-7 rounded-full" style="{{ $moreActive ? 'background:#1E3A4A14;' : '' }}">
+                <x-admin-icon name="menu" class="w-5 h-5" style="{{ $moreActive ? 'color:#C99A52;' : '' }}" />
             </span>
             More
         </button>
@@ -188,9 +188,9 @@
             @php $active = $isActive($link['route']); @endphp
             <a href="{{ route($link['route']) }}"
                class="flex flex-col items-center gap-1.5 py-3 rounded-2xl text-[11px] font-medium transition {{ $active ? '' : 'text-gray-500 active:bg-gray-100' }}"
-               style="{{ $active ? 'color:#2E4636;background:#2E46360d;' : '' }}">
-                <span class="w-11 h-11 rounded-2xl flex items-center justify-center" style="background:{{ $active ? '#2E463618' : '#F3F4F6' }};">
-                    <x-admin-icon :name="$link['icon']" class="w-5 h-5" style="color:{{ $active ? '#C9A24B' : '#6B7280' }};" />
+               style="{{ $active ? 'color:#1E3A4A;background:#1E3A4A0d;' : '' }}">
+                <span class="w-11 h-11 rounded-2xl flex items-center justify-center" style="background:{{ $active ? '#1E3A4A18' : '#F3F4F6' }};">
+                    <x-admin-icon :name="$link['icon']" class="w-5 h-5" style="color:{{ $active ? '#C99A52' : '#6B7280' }};" />
                 </span>
                 {{ $link['label'] }}
             </a>

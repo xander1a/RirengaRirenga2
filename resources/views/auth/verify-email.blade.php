@@ -1,6 +1,6 @@
 <x-guest-layout :title="__('Verify your email')" :subtitle="__('Click the link we sent you to activate your account.')">
     @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm rounded-xl px-4 py-3" style="background:#F1E9D7;color:#2E4636;">
+        <div class="mb-4 font-medium text-sm rounded-xl px-4 py-3" style="background:#EFE9DC;color:#1E3A4A;">
             {{ __('A new verification link has been sent to the email address you provided during registration.') }}
         </div>
     @endif

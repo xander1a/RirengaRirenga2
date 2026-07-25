@@ -4,7 +4,7 @@
 @section('content')
 <div class="flex justify-between items-center mb-6">
     <div></div>
-    <a href="{{ route('admin.blog.create') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">
+    <a href="{{ route('admin.blog.create') }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">
         <x-admin-icon name="plus" class="w-4 h-4" /> New Post
     </a>
 </div>
@@ -32,7 +32,7 @@
                 <td class="px-5 py-3">
                     <div class="flex gap-1 justify-end">
                         <a href="{{ route('admin.blog.edit', $post) }}"
-                           class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition" style="color:#BF6B47;"
+                           class="w-9 h-9 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition" style="color:#D07A54;"
                            aria-label="Edit {{ $post->title }}">
                             <x-admin-icon name="pencil" class="w-4 h-4" />
                         </a>

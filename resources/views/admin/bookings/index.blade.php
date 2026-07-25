@@ -5,7 +5,7 @@
 <div class="flex flex-wrap gap-4 mb-6 justify-between items-center">
     <form method="GET" class="flex flex-wrap gap-3">
         <input type="text" name="search" placeholder="Reference / Guest / Email" value="{{ request('search') }}"
-               class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm focus:outline-none focus:border-[#6E8C5A] focus:ring-[#6E8C5A]">
+               class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm focus:outline-none focus:border-[#3F7C8A] focus:ring-[#3F7C8A]">
         <select name="status" class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[44px] text-sm">
             <option value="">All statuses</option>
             @foreach(['pending','confirmed','cancelled','checked_in','checked_out'] as $s)
@@ -18,7 +18,7 @@
             <option value="{{ $p }}" {{ request('payment_status')===$p?'selected':'' }}>{{ ucfirst(str_replace('_',' ',$p)) }}</option>
             @endforeach
         </select>
-        <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Filter</button>
+        <button type="submit" class="px-4 py-2.5 min-h-[44px] rounded-xl text-white text-sm font-semibold" style="background-color:#1E3A4A;">Filter</button>
     </form>
     <a href="{{ route('admin.bookings.export', request()->all()) }}" class="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium border border-gray-200 bg-white hover:bg-gray-50">
         <x-admin-icon name="archive" class="w-4 h-4" /> Export CSV
@@ -64,7 +64,7 @@
                         </span>
                     </td>
                     <td class="px-5 py-3">
-                        <a href="{{ route('admin.bookings.show', $b) }}" class="inline-flex items-center gap-1 text-xs font-medium min-h-[44px]" style="color:#BF6B47;">
+                        <a href="{{ route('admin.bookings.show', $b) }}" class="inline-flex items-center gap-1 text-xs font-medium min-h-[44px]" style="color:#D07A54;">
                             View <x-admin-icon name="chevron-right" class="w-3.5 h-3.5" />
                         </a>
                     </td>

@@ -1,36 +1,35 @@
 @extends('layouts.public')
 @section('title', __('nav.gallery'))
 @section('content')
-<x-page-hero image="gallery_hero" :title="__('nav.gallery')" />
+<x-page-hero image="gallery_hero" :title="__('nav.gallery')" kicker="In Pictures" />
 
-<section class="py-16 px-4" x-data="{ filter: 'all', lightbox: null }" @keydown.escape.window="lightbox = null">
+<section class="py-24 px-4" x-data="{ filter: 'all', lightbox: null }" @keydown.escape.window="lightbox = null">
     <div class="max-w-7xl mx-auto">
-        {{-- Filter Tabs --}}
-        <div class="flex flex-wrap gap-3 justify-center mb-10">
+        {{-- Filter Tabs (editorial text tabs) --}}
+        <div class="flex flex-wrap gap-x-7 gap-y-3 justify-center mb-14 text-[0.72rem] font-semibold uppercase tracking-[0.16em]">
             @foreach(['all'=>'All','rooms'=>'Rooms','restaurant'=>'Restaurant','bar'=>'Bar','surroundings'=>'Surroundings'] as $key => $label)
             <button @click="filter = '{{ $key }}'"
-                    :class="filter === '{{ $key }}' ? 'text-white' : 'text-gray-600 bg-white border border-gray-200'"
-                    :style="filter === '{{ $key }}' ? 'background-color:#2E4636;' : ''"
-                    class="px-5 py-2 rounded-xl text-sm font-medium transition">
+                    class="relative pb-1.5 transition-colors"
+                    :style="filter === '{{ $key }}' ? 'color:#1E3A4A;' : 'color:rgba(34,32,29,0.45);'">
                 {{ $label }}
+                <span class="absolute -bottom-0 left-0 right-0 h-0.5" style="background:#C99A52;" x-show="filter === '{{ $key }}'"></span>
             </button>
             @endforeach
         </div>
 
         @if($photos->count())
-        {{-- Masonry: photos keep their natural aspect ratio, nothing gets cropped --}}
         <div class="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
             @foreach($photos as $photo)
             <div x-show="filter === 'all' || filter === '{{ $photo->category }}'"
                  x-transition.opacity
                  @click="lightbox = { src: '{{ $photo->url }}', title: @js($photo->title ?? ucfirst($photo->category)) }"
-                 class="mb-4 break-inside-avoid rounded-xl overflow-hidden group relative cursor-zoom-in shadow-sm hover:shadow-md transition-shadow"
-                 style="background:#6E8C5A20;">
+                 class="ed-frame mb-4 break-inside-avoid group relative cursor-zoom-in"
+                 style="background:#3F7C8A20;">
                 <img src="{{ $photo->url }}" alt="{{ $photo->title ?? $photo->category }}"
-                     class="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-300"
+                     class="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-500"
                      loading="lazy">
                 @if($photo->title)
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3 pointer-events-none">
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition flex items-end p-4 pointer-events-none" style="background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);">
                     <span class="text-white text-sm font-medium">{{ $photo->title }}</span>
                 </div>
                 @endif
@@ -46,7 +45,7 @@
                 <x-admin-icon name="x-mark" class="w-7 h-7" />
             </button>
             <figure class="max-w-5xl max-h-full text-center" @click.stop>
-                <img :src="lightbox?.src" :alt="lightbox?.title" class="max-h-[82vh] w-auto max-w-full mx-auto rounded-lg shadow-2xl">
+                <img :src="lightbox?.src" :alt="lightbox?.title" class="max-h-[82vh] w-auto max-w-full mx-auto shadow-2xl" style="border-radius:2px;">
                 <figcaption class="mt-3 text-white/80 text-sm" x-text="lightbox?.title"></figcaption>
             </figure>
         </div>

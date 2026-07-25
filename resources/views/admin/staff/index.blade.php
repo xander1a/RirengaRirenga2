@@ -4,7 +4,7 @@
 @section('content')
 {{-- Add Staff --}}
 <div class="bg-white rounded-2xl p-6 shadow-sm mb-6" x-data="{ open: false }">
-    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#BF6B47;">
+    <button @click="open = !open" class="flex items-center gap-2 text-sm font-semibold min-h-[44px]" style="color:#D07A54;">
         <x-admin-icon name="plus" class="w-4 h-4" /> Add Staff Member
     </button>
     <div x-show="open" x-transition class="mt-4">
@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div><label class="block text-xs mb-1">Password</label><input type="password" name="password" required minlength="8" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm"></div>
-            <div class="flex items-end"><button type="submit" class="w-full py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Create</button></div>
+            <div class="flex items-end"><button type="submit" class="w-full py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Create</button></div>
         </form>
     </div>
 </div>
@@ -71,7 +71,7 @@
                         {{-- Edit panel --}}
                         <div x-show="editing" x-cloak x-transition @click.outside="editing = false"
                              class="absolute right-8 z-20 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-100 p-4 text-left">
-                            <h4 class="text-sm font-semibold mb-3" style="color:#2E4636;">Edit {{ $member->name }}</h4>
+                            <h4 class="text-sm font-semibold mb-3" style="color:#1E3A4A;">Edit {{ $member->name }}</h4>
                             <form action="{{ route('admin.staff.update', $member) }}" method="POST" class="space-y-3">
                                 @csrf @method('PUT')
                                 <div><label class="block text-xs mb-1">Name</label>
@@ -89,7 +89,7 @@
                                     </select></div>
                                 <div><label class="block text-xs mb-1">New Password <span class="text-gray-400">(leave blank to keep)</span></label>
                                     <input type="password" name="password" minlength="8" autocomplete="new-password" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
-                                <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#2E4636;">Save Changes</button>
+                                <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#1E3A4A;">Save Changes</button>
                             </form>
                         </div>
                     </div>
@@ -106,13 +106,13 @@
 <div class="bg-white rounded-2xl shadow-sm overflow-hidden mt-8">
     <div class="px-5 py-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3">
         <div>
-            <h2 class="font-semibold text-sm" style="color:#2E4636;">Registered Users</h2>
+            <h2 class="font-semibold text-sm" style="color:#1E3A4A;">Registered Users</h2>
             <p class="text-xs text-gray-400 mt-0.5">Customers who signed up on the website. Promote them to staff, edit, or remove them.</p>
         </div>
         <form method="GET" class="flex gap-2">
             <input type="text" name="search" value="{{ request('search') }}" placeholder="Name or email"
                    class="rounded-xl border border-gray-200 px-3 py-2 min-h-[40px] text-sm">
-            <button type="submit" class="px-4 py-2 min-h-[40px] rounded-xl text-white text-sm font-semibold" style="background-color:#2E4636;">Search</button>
+            <button type="submit" class="px-4 py-2 min-h-[40px] rounded-xl text-white text-sm font-semibold" style="background-color:#1E3A4A;">Search</button>
         </form>
     </div>
     <div class="overflow-x-auto admin-scroll">
@@ -153,7 +153,7 @@
                         {{-- Edit panel --}}
                         <div x-show="editing" x-cloak x-transition @click.outside="editing = false"
                              class="absolute right-8 z-20 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-100 p-4 text-left">
-                            <h4 class="text-sm font-semibold mb-3" style="color:#2E4636;">Edit {{ $member->name }}</h4>
+                            <h4 class="text-sm font-semibold mb-3" style="color:#1E3A4A;">Edit {{ $member->name }}</h4>
                             <form action="{{ route('admin.staff.update', $member) }}" method="POST" class="space-y-3">
                                 @csrf @method('PUT')
                                 <div><label class="block text-xs mb-1">Name</label>
@@ -171,7 +171,7 @@
                                     </select></div>
                                 <div><label class="block text-xs mb-1">New Password <span class="text-gray-400">(leave blank to keep)</span></label>
                                     <input type="password" name="password" minlength="8" autocomplete="new-password" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"></div>
-                                <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#2E4636;">Save Changes</button>
+                                <button type="submit" class="w-full py-2 rounded-lg text-white text-sm font-semibold" style="background-color:#1E3A4A;">Save Changes</button>
                             </form>
                         </div>
                     </div>

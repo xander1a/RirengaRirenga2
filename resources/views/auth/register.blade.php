@@ -49,6 +49,6 @@
 
     <p class="mt-8 text-center text-sm text-gray-500">
         {{ __('Already registered?') }}
-        <a href="{{ route('login') }}" class="font-semibold hover:underline" style="color:#2E4636;">{{ __('Log in') }}</a>
+        <a href="{{ route('login') }}" class="font-semibold hover:underline" style="color:#1E3A4A;">{{ __('Log in') }}</a>
     </p>
 </x-guest-layout>

@@ -17,7 +17,7 @@
             <template x-if="preview">
                 <div class="absolute inset-0 z-10">
                     <img :src="preview" alt="Preview" class="w-full h-full object-cover">
-                    <span class="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide text-white" style="background:#BF6B47;">Preview — not saved yet</span>
+                    <span class="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide text-white" style="background:#D07A54;">Preview — not saved yet</span>
                 </div>
             </template>
 
@@ -44,9 +44,9 @@
             <form action="{{ route('admin.site-images.update', $key) }}" method="POST" enctype="multipart/form-data" class="flex items-center gap-2">
                 @csrf
                 <input type="file" name="image" accept="image/*" required @change="pick($event)"
-                       class="flex-1 min-w-0 text-xs text-gray-500 rounded-xl border border-gray-200 p-1 file:mr-2 file:px-3 file:py-2 file:rounded-lg file:border file:border-solid file:border-[#2E4636] file:bg-[#2E4636] file:text-white file:text-xs file:font-semibold file:cursor-pointer hover:file:opacity-90">
+                       class="flex-1 min-w-0 text-xs text-gray-500 rounded-xl border border-gray-200 p-1 file:mr-2 file:px-3 file:py-2 file:rounded-lg file:border file:border-solid file:border-[#1E3A4A] file:bg-[#1E3A4A] file:text-white file:text-xs file:font-semibold file:cursor-pointer hover:file:opacity-90">
                 <button type="submit" x-show="preview" x-cloak
-                        class="px-3 py-2 rounded-lg text-white text-xs font-semibold shrink-0" style="background-color:#BF6B47;">
+                        class="px-3 py-2 rounded-lg text-white text-xs font-semibold shrink-0" style="background-color:#D07A54;">
                     Upload
                 </button>
             </form>
@@ -57,7 +57,7 @@
 
 @push('scripts')
 <style>
-    input[type="file"]::file-selector-button { background-color: #2E4636; }
+    input[type="file"]::file-selector-button { background-color: #1E3A4A; }
 </style>
 @endpush
 @endsection

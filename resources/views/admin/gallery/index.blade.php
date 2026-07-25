@@ -4,7 +4,7 @@
 @section('content')
 {{-- Upload Form --}}
 <div class="bg-white rounded-2xl p-6 shadow-sm mb-8">
-    <h2 class="font-semibold mb-4" style="color:#2E4636;">Upload Photo</h2>
+    <h2 class="font-semibold mb-4" style="color:#1E3A4A;">Upload Photo</h2>
     <form action="{{ route('admin.gallery.store') }}" method="POST" enctype="multipart/form-data" class="flex flex-wrap gap-4 items-end">
         @csrf
         <div>
@@ -24,7 +24,7 @@
             <label class="block text-xs mb-1">Title (optional)</label>
             <input type="text" name="title" class="rounded-xl border border-gray-200 px-3 py-2 text-sm w-48">
         </div>
-        <button type="submit" class="px-5 py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#BF6B47;">Upload</button>
+        <button type="submit" class="px-5 py-2 rounded-xl text-white text-sm font-semibold" style="background-color:#D07A54;">Upload</button>
     </form>
 </div>
 

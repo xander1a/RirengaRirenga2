@@ -28,24 +28,24 @@ class DatabaseSeeder extends Seeder
 
         // Demo users
         $directorUser = User::factory()->create([
-            'name'     => 'BYIZA Director',
-            'email'    => 'director@byizaecolodge.com',
+            'name'     => 'Rirenga Director',
+            'email'    => 'director@rirenga.com',
             'password' => Hash::make('director123'),
             'phone'    => '+250788000001',
         ]);
         $directorUser->assignRole('director');
 
         $managerUser = User::factory()->create([
-            'name'     => 'BYIZA Manager',
-            'email'    => 'manager@byizaecolodge.com',
+            'name'     => 'Rirenga Manager',
+            'email'    => 'manager@rirenga.com',
             'password' => Hash::make('manager123'),
             'phone'    => '+250788000002',
         ]);
         $managerUser->assignRole('manager');
 
         $staffUser = User::factory()->create([
-            'name'     => 'BYIZA Staff',
-            'email'    => 'staff@byizaecolodge.com',
+            'name'     => 'Rirenga Staff',
+            'email'    => 'staff@rirenga.com',
             'password' => Hash::make('staff123'),
             'phone'    => '+250788000003',
         ]);
@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
         $wines     = MenuCategory::create(['name' => 'Wines', 'name_fr' => 'Vins', 'type' => 'bar', 'sort_order' => 4]);
         $softs     = MenuCategory::create(['name' => 'Soft Drinks & Juices', 'name_fr' => 'Soft & Jus', 'type' => 'bar', 'sort_order' => 5]);
 
-        MenuItem::create(['menu_category_id' => $cocktails->id, 'name' => 'BYIZA Sunset', 'description' => 'Passion fruit, rum, lime, hibiscus syrup', 'price' => 9.00]);
+        MenuItem::create(['menu_category_id' => $cocktails->id, 'name' => 'Rirenga Sunset', 'description' => 'Passion fruit, rum, lime, hibiscus syrup', 'price' => 9.00]);
         MenuItem::create(['menu_category_id' => $cocktails->id, 'name' => 'Forest Gin & Tonic', 'description' => 'Premium gin, tonic, cucumber, herbs', 'price' => 8.00]);
         MenuItem::create(['menu_category_id' => $cocktails->id, 'name' => 'Kigali Mule', 'description' => 'Vodka, ginger beer, lime, mint', 'price' => 8.50]);
         MenuItem::create(['menu_category_id' => $mocktails->id, 'name' => 'Green Valley', 'description' => 'Cucumber, mint, lime, sparkling water', 'price' => 5.00]);
@@ -170,22 +170,22 @@ class DatabaseSeeder extends Seeder
         // Blog posts
         BlogPost::create([
             'user_id'      => $directorUser->id,
-            'title'        => 'Welcome to BYIZA Eco-lodge',
-            'title_fr'     => 'Bienvenue à BYIZA Eco-lodge',
-            'slug'         => 'welcome-to-byiza-eco-lodge',
+            'title'        => 'Welcome to Rirenga Eco-lodge',
+            'title_fr'     => 'Bienvenue à Rirenga Eco-lodge',
+            'slug'         => 'welcome-to-rirenga-eco-lodge',
             'excerpt'      => 'We are thrilled to open our doors and welcome guests to our eco-friendly sanctuary in Rwanda.',
             'excerpt_fr'   => "Nous sommes ravis d'ouvrir nos portes et d'accueillir nos hôtes.",
-            'body'         => '<p>BYIZA Eco-lodge is nestled in the lush hills of Rwanda, offering a unique blend of nature immersion, warm Rwandan hospitality, and sustainable luxury. Our five self-contained rooms look out over forests and valleys, while our restaurant and bar celebrate the best of local produce.</p>',
-            'body_fr'      => "<p>BYIZA Eco-lodge est niché dans les collines luxuriantes du Rwanda, offrant un mélange unique d'immersion dans la nature et de luxe durable.</p>",
+            'body'         => '<p>Rirenga Eco-lodge is nestled in the lush hills of Rwanda, offering a unique blend of nature immersion, warm Rwandan hospitality, and sustainable luxury. Our five self-contained rooms look out over forests and valleys, while our restaurant and bar celebrate the best of local produce.</p>',
+            'body_fr'      => "<p>Rirenga Eco-lodge est niché dans les collines luxuriantes du Rwanda, offrant un mélange unique d'immersion dans la nature et de luxe durable.</p>",
             'is_published' => true,
             'published_at' => now()->subDays(5),
         ]);
         BlogPost::create([
             'user_id'      => $managerUser->id,
-            'title'        => 'Top 5 Hiking Trails Near BYIZA',
-            'slug'         => 'top-5-hiking-trails-near-byiza',
+            'title'        => 'Top 5 Hiking Trails Near Rirenga',
+            'slug'         => 'top-5-hiking-trails-near-rirenga',
             'excerpt'      => 'Discover the breathtaking trails that start right at our doorstep.',
-            'body'         => '<p>Rwanda is blessed with incredible natural scenery. Here are five trails accessible directly from BYIZA Eco-lodge.</p><ol><li><strong>Forest Loop Trail</strong> (2km, easy)</li><li><strong>Ridge View Trail</strong> (5km, moderate)</li><li><strong>Waterfall Hike</strong> (8km, moderate)</li><li><strong>Summit Trail</strong> (12km, challenging)</li><li><strong>Village Walk</strong> (4km, easy — cultural route)</li></ol>',
+            'body'         => '<p>Rwanda is blessed with incredible natural scenery. Here are five trails accessible directly from Rirenga Eco-lodge.</p><ol><li><strong>Forest Loop Trail</strong> (2km, easy)</li><li><strong>Ridge View Trail</strong> (5km, moderate)</li><li><strong>Waterfall Hike</strong> (8km, moderate)</li><li><strong>Summit Trail</strong> (12km, challenging)</li><li><strong>Village Walk</strong> (4km, easy — cultural route)</li></ol>',
             'is_published' => true,
             'published_at' => now()->subDays(2),
         ]);
