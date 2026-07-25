@@ -33,7 +33,7 @@ jobs:
 
       # 1) Application code (incl. vendor) -> ~/rirenga.com/Rirenga/
       - name: Deploy app code (rsync over SSH)
-        uses: easingthemes/ssh-deploy@v5
+        uses: easingthemes/ssh-deploy@v6.0.1
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
@@ -46,7 +46,7 @@ jobs:
 
       # 2) Built public assets -> ~/rirenga.com/ (document root)
       - name: Deploy public assets (rsync over SSH)
-        uses: easingthemes/ssh-deploy@v5
+        uses: easingthemes/ssh-deploy@v6.0.1
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
