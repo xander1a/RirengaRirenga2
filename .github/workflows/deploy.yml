@@ -58,21 +58,28 @@ jobs:
             tests/**
             .ftp-deploy-sync-state.json
 
-      # 2) The public folder contents go straight to public_html/ (the document root)
-      - name: Deploy public assets to document root
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.byizaecolodge.com
-          username: byizhytz
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftps
-          timeout: 120000
-          server-dir: ./rirenga.com/
-          local-dir: ./public/
-          state-name: .ftp-deploy-sync-state-public.json
-          exclude: |
-            uploads/**
-            index.php
-            .htaccess
-            .ftp-deploy-sync-state-public.json
+      # 2) The public folder contents go straight to the document root (~/rirenga.com/)
+      #    Uses lftp (auto-retries + parallel) which survives Namecheap FTPS drops.
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Deploy public assets to document root (lftp)
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 5;
+            set net:persist-retries 5;
+            set net:timeout 20;
+            set net:reconnect-interval-base 5;
+            set mirror:parallel-transfer-count 3;
+            open -u byizhytz,\"$FTP_PASSWORD\" -p 21 ftp.byizaecolodge.com;
+            mirror -R --continue --parallel=3 \
+              --exclude-glob index.php \
+              --exclude-glob .htaccess \
+              --exclude 'uploads/' \
+              ./public/ ./rirenga.com/;
+          "
