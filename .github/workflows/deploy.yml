@@ -40,6 +40,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftps
+          timeout: 120000
           server-dir: ./rirenga.com/Rirenga/
           local-dir: ./
           state-name: .ftp-deploy-sync-state.json
@@ -66,6 +67,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftps
+          timeout: 120000
           server-dir: ./rirenga.com/
           local-dir: ./public/
           state-name: .ftp-deploy-sync-state-public.json
