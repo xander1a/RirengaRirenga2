@@ -1,15 +1,28 @@
+<style>
+    .rnav-link { position: relative; color: rgba(255,255,255,0.72); transition: color .25s ease; }
+    .rnav-link:hover, .rnav-link.is-active { color: #fff; }
+    .rnav-link::after { content:''; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:#C99A52; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+    .rnav-link:hover::after, .rnav-link.is-active::after { transform: scaleX(1); }
+    .rnav-wordmark:hover .rnav-dot { transform: scale(1.4); }
+    .rnav-dot { transition: transform .3s ease; }
+</style>
 <nav x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 40)"
      @keydown.escape.window="open = false"
-     :class="scrolled ? 'shadow-md' : ''"
+     :class="scrolled ? 'shadow-lg' : ''"
      class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
      :style="scrolled ? 'background-color:#1E3A4A;' : 'background-color:transparent;'">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{-- Legibility scrim over hero images (fades out once scrolled) --}}
+    <div x-show="!scrolled" x-transition.opacity class="pointer-events-none absolute inset-x-0 top-0 h-28" style="background:linear-gradient(to bottom, rgba(12,26,33,0.55), transparent);"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 lg:h-20">
 
             {{-- Wordmark --}}
-            <a href="{{ route('home') }}" class="flex items-baseline gap-2 shrink-0">
+            <a href="{{ route('home') }}" class="rnav-wordmark flex items-baseline gap-2 shrink-0">
                 <span class="font-display text-2xl lg:text-[1.7rem] font-bold tracking-tight text-white">Rirenga</span>
+                <span class="rnav-dot inline-block w-1.5 h-1.5 rounded-full self-center" style="background:#C99A52;"></span>
+                <span class="hidden sm:inline text-[0.58rem] font-semibold uppercase tracking-[0.3em]" style="color:rgba(201,162,82,0.95);">Treat&nbsp;Ltd</span>
             </a>
 
             @php
@@ -26,17 +39,12 @@
             @endphp
 
             {{-- Desktop Nav (text-only, editorial) --}}
-            <div class="hidden lg:flex items-center gap-6 text-[0.72rem] font-semibold uppercase tracking-[0.14em]">
+            <div class="hidden lg:flex items-center gap-7 text-[0.72rem] font-semibold uppercase tracking-[0.14em]">
                 @foreach($navLinks as $link)
                 @php $active = ($link['exact'] ?? false) ? request()->routeIs($link['route']) : request()->routeIs($link['route'].'*'); @endphp
                 <a href="{{ route($link['route']) }}"
-                   class="relative py-1.5 whitespace-nowrap transition-colors"
-                   style="color:{{ $active ? '#ffffff' : 'rgba(255,255,255,0.68)' }};"
-                   onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='{{ $active ? '#ffffff' : 'rgba(255,255,255,0.68)' }}'">
+                   class="rnav-link {{ $active ? 'is-active' : '' }} py-1.5 whitespace-nowrap">
                     {{ $link['label'] }}
-                    @if($active)
-                    <span class="absolute -bottom-0.5 left-0 right-0 h-0.5" style="background:#C99A52;"></span>
-                    @endif
                 </a>
                 @endforeach
             </div>
@@ -121,7 +129,7 @@
          style="background-color:#1E3A4A;">
 
         <div class="flex items-center justify-between p-5 border-b border-white/10">
-            <span class="font-display text-lg font-bold text-white tracking-wide">Rirenga <span class="font-sans text-xs font-normal text-white/50 align-middle">Eco-Lodge</span></span>
+            <span class="font-display text-lg font-bold text-white tracking-wide">Rirenga <span class="font-sans text-[0.55rem] font-semibold uppercase tracking-[0.25em] align-middle" style="color:#C99A52;">Treat Ltd</span></span>
             <button @click="open = false" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
                 <x-admin-icon name="x-mark" class="w-5 h-5" />
             </button>

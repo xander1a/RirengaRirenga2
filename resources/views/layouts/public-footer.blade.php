@@ -4,10 +4,10 @@
         {{-- Top: oversized wordmark + tagline --}}
         <div class="py-14 border-b border-white/15 grid lg:grid-cols-[1.5fr_1fr] gap-10 items-end">
             <div>
-                <span class="ed-kicker ed-kicker--light">Rwanda &middot; Eco-Lodge</span>
+                <span class="ed-kicker ed-kicker--light">Kigali &middot; Rwanda</span>
                 <p class="font-display font-bold leading-none mt-4" style="font-size:clamp(2.75rem,7vw,5rem);color:#fff;">Rirenga</p>
                 <p class="mt-5 text-sm leading-relaxed max-w-sm" style="color:rgba(239,233,220,0.7);">
-                    A sustainable sanctuary in the hills of Rwanda — rooms, restaurant, bar, and unforgettable hiking, between the twin lakes of Ruhondo &amp; Burera.
+                    Rirenga treat ltd — a sustainable retreat in Rwanda offering rooms, restaurant, bar, and memorable experiences.
                 </p>
             </div>
             <div class="lg:text-right">
@@ -46,8 +46,8 @@
             <div class="sm:col-span-2">
                 <h4 class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] mb-5" style="color:rgba(239,233,220,0.45);">Visit &amp; Contact</h4>
                 <ul class="space-y-3 text-sm" style="color:rgba(239,233,220,0.75);">
-                    <li>Kingdom of the Gorillas — between lakes Ruhondo &amp; Burera, Rwanda</li>
-                    <li><a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener" class="hover:text-white underline underline-offset-2">View on Google Maps</a></li>
+                    <li>Kanyinya, Nyarugenge — Kigali, Rwanda</li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&query=Kanyinya+Nyarugenge+Kigali+Rwanda" target="_blank" rel="noopener" class="hover:text-white underline underline-offset-2">View on Google Maps</a></li>
                     <li><a href="tel:+250787770750" class="hover:text-white">+250 787 770 750</a> &middot; <a href="https://wa.me/250787770750" target="_blank" rel="noopener" class="hover:text-white">WhatsApp</a></li>
                     <li><a href="mailto:izubatreat@gmail.com" class="hover:text-white">izubatreat@gmail.com</a></li>
                 </ul>
@@ -56,7 +56,7 @@
 
         {{-- Bottom bar --}}
         <div class="py-6 border-t border-white/15 flex flex-col sm:flex-row justify-between items-center text-[0.7rem] tracking-wide" style="color:rgba(239,233,220,0.4);">
-            <span>&copy; {{ date('Y') }} Rirenga. All rights reserved.</span>
+            <span>&copy; {{ date('Y') }} Rirenga treat ltd. All rights reserved.</span>
             <div class="mt-2 sm:mt-0 flex gap-4">
                 <a href="{{ route('locale.set', 'en') }}" class="hover:text-white transition">EN</a>
                 <a href="{{ route('locale.set', 'fr') }}" class="hover:text-white transition">FR</a>

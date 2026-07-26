@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td style="padding:16px;text-align:center;background:#F9F6EF;">
-                        <span style="color:#999;font-size:11px;">© {{ date('Y') }} Rirenga · Rwanda</span>
+                        <span style="color:#999;font-size:11px;">© {{ date("Y") }} Rirenga treat ltd · Rwanda</span>
                     </td>
                 </tr>
             </table>

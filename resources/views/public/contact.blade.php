@@ -12,9 +12,14 @@
 
             <div class="mt-10 divide-y" style="border-top:1px solid rgba(34,32,29,0.14);border-color:rgba(34,32,29,0.14);">
                 <div class="py-5">
+                    <p class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gray-400 mb-1.5">Company</p>
+                    <p class="text-gray-700">Rirenga treat ltd</p>
+                    <p class="text-sm text-gray-500 mt-0.5">Kayitesi Julienne — Director Manager</p>
+                </div>
+                <div class="py-5">
                     <p class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gray-400 mb-1.5">{{ __('contact.address') }}</p>
-                    <p class="text-gray-700">On a hilltop between the twin lakes of Ruhondo and Burera, overlooking the Virunga volcanoes — Northern Province, Rwanda</p>
-                    <a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener" class="ed-arrow mt-3">
+                    <p class="text-gray-700">Kanyinya, Nyarugenge — Kigali, Rwanda</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kanyinya+Nyarugenge+Kigali+Rwanda" target="_blank" rel="noopener" class="ed-arrow mt-3">
                         Open in Google Maps
                         <svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
@@ -34,13 +39,13 @@
             </div>
 
             {{-- Map --}}
-            <a href="https://maps.app.goo.gl/tdT1uAKM9XU2Dh9S7" target="_blank" rel="noopener"
+            <a href="https://www.google.com/maps/search/?api=1&query=Kanyinya+Nyarugenge+Kigali+Rwanda" target="_blank" rel="noopener"
                class="ed-frame group mt-8 block relative" style="height:200px;background:#1E3A4A;">
                 <div class="absolute inset-0 opacity-20"
                      style="background-image: radial-gradient(circle, #C99A52 1px, transparent 1px); background-size: 22px 22px;"></div>
                 <div class="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
                     <span class="font-display text-lg font-bold">Find us on Google Maps</span>
-                    <span class="text-white/60 text-sm mt-1">Ruhondo &amp; Burera lakes, Northern Rwanda</span>
+                    <span class="text-white/60 text-sm mt-1">Kanyinya, Nyarugenge — Kigali, Rwanda</span>
                     <span class="ed-btn ed-btn-solid mt-4" style="padding:0.55rem 1.3rem;">Get directions</span>
                 </div>
             </a>
