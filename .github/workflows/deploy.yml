@@ -70,7 +70,7 @@ jobs:
           lftp -c "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
-            set ssl:verify-cer tificate no;
+            set ssl:verify-certificate no;
             set net:max-retries 5;
             set net:persist-retries 5;
             set net:timeout 20;
