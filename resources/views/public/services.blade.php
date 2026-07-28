@@ -6,10 +6,10 @@
     <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style="background:rgba(34,32,29,0.12);">
             @foreach([
-                ['🛏️','Accommodation','Five self-contained rooms ranging from cosy singles to spacious doubles and twin rooms. All rooms include daily dinner & breakfast, private bathroom, and forest views.'],
+                ['🛏️','Accommodation','Five self-contained rooms ranging from cosy singles to spacious doubles and twin rooms. All rooms include daily dinner & breakfast, private bathroom, and sweeping city views.'],
                 ['🍽️','Dining','Our farm-to-table restaurant serves a changing seasonal menu celebrating Rwandan ingredients. Private dining and event catering available on request.'],
                 ['🍸','Bar','Signature cocktails, local craft beers, curated wines, and a full spirits selection. Regular live music and themed evenings.'],
-                ['🥾','Hiking','Guided and self-guided hiking experiences ranging from gentle forest loops to challenging summit trails. Cultural village walks also available.'],
+                ['🌇','Sunset Terrace','Wind down on our west-facing terrace and lounge as the sun sets over Kigali — the perfect end to the day with a drink in hand and the city glowing below.'],
                 ['🚗','Airport Transfers','Private transfers between Kigali International Airport and Rirenga. Bookable with your reservation.'],
                 ['🎉','Events & Retreats','Private event hosting, corporate retreats, and wellness weekends. Contact us to discuss your event.'],
             ] as $n => $s)

@@ -63,10 +63,10 @@ class DatabaseSeeder extends Seeder
         $dbl = RoomType::create([
             'code'            => 'DBL',
             'name'            => 'Double Room',
-            'description'     => 'Spacious double room with a queen-sized bed, ensuite bathroom, and private terrace overlooking the forest. Includes daily dinner and breakfast.',
+            'description'     => 'Spacious double room with a queen-sized bed, ensuite bathroom, and private terrace overlooking the city. Includes daily dinner and breakfast.',
             'price_per_night' => 150.00,
             'max_guests'      => 2,
-            'amenities'       => ['Dinner & Breakfast Included', 'Private Terrace', 'Ensuite Bathroom', 'Hiking Access', 'Free WiFi', 'Forest View'],
+            'amenities'       => ['Dinner & Breakfast Included', 'Private Terrace', 'Ensuite Bathroom', 'Sunset View', 'Free WiFi', 'City View'],
             'is_active'       => true,
         ]);
 
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'description'     => 'Elegant twin room with two single beds, perfect for friends or colleagues. Features a garden view and all eco-lodge amenities. Includes daily dinner and breakfast.',
             'price_per_night' => 150.00,
             'max_guests'      => 2,
-            'amenities'       => ['Dinner & Breakfast Included', 'Garden View', 'Ensuite Bathroom', 'Hiking Access', 'Free WiFi'],
+            'amenities'       => ['Dinner & Breakfast Included', 'Garden View', 'Ensuite Bathroom', 'Sunset View', 'Free WiFi'],
             'is_active'       => true,
         ]);
 
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             'description'     => 'Cosy single room ideal for solo travellers. Includes daily dinner and breakfast.',
             'price_per_night' => 90.00,
             'max_guests'      => 1,
-            'amenities'       => ['Dinner & Breakfast Included', 'Ensuite Bathroom', 'Hiking Access', 'Free WiFi'],
+            'amenities'       => ['Dinner & Breakfast Included', 'Ensuite Bathroom', 'Sunset View', 'Free WiFi'],
             'is_active'       => true,
         ]);
 
@@ -175,17 +175,17 @@ class DatabaseSeeder extends Seeder
             'slug'         => 'welcome-to-rirenga-eco-lodge',
             'excerpt'      => 'We are thrilled to open our doors and welcome guests to our eco-friendly sanctuary in Rwanda.',
             'excerpt_fr'   => "Nous sommes ravis d'ouvrir nos portes et d'accueillir nos hôtes.",
-            'body'         => '<p>Rirenga Eco-lodge is nestled in the lush hills of Rwanda, offering a unique blend of nature immersion, warm Rwandan hospitality, and sustainable luxury. Our five self-contained rooms look out over forests and valleys, while our restaurant and bar celebrate the best of local produce.</p>',
+            'body'         => '<p>Rirenga Eco-lodge sits on the green hills of Kigali, offering a modern blend of contemporary design, warm Rwandan hospitality, and sustainable comfort. Our five self-contained rooms look out over the city, while our restaurant, bar, and sunset terrace celebrate the best of local produce.</p>',
             'body_fr'      => "<p>Rirenga Eco-lodge est niché dans les collines luxuriantes du Rwanda, offrant un mélange unique d'immersion dans la nature et de luxe durable.</p>",
             'is_published' => true,
             'published_at' => now()->subDays(5),
         ]);
         BlogPost::create([
             'user_id'      => $managerUser->id,
-            'title'        => 'Top 5 Hiking Trails Near Rirenga',
-            'slug'         => 'top-5-hiking-trails-near-rirenga',
-            'excerpt'      => 'Discover the breathtaking trails that start right at our doorstep.',
-            'body'         => '<p>Rwanda is blessed with incredible natural scenery. Here are five trails accessible directly from Rirenga Eco-lodge.</p><ol><li><strong>Forest Loop Trail</strong> (2km, easy)</li><li><strong>Ridge View Trail</strong> (5km, moderate)</li><li><strong>Waterfall Hike</strong> (8km, moderate)</li><li><strong>Summit Trail</strong> (12km, challenging)</li><li><strong>Village Walk</strong> (4km, easy — cultural route)</li></ol>',
+            'title'        => 'The Best Sunset Spot in Kigali',
+            'slug'         => 'the-best-sunset-spot-in-kigali',
+            'excerpt'      => 'Why the end of the day is the best time to be at Rirenga.',
+            'body'         => '<p>There is no better way to close a day in Kigali than from our west-facing terrace. As the sun dips over the hills, the city glows gold and the evening air cools. Here is how to make the most of it at Rirenga Eco-lodge.</p><ol><li><strong>Arrive early</strong> — the light starts to turn around 5:30pm.</li><li><strong>Order a Rirenga Sunset</strong> — our signature cocktail, made for the moment.</li><li><strong>Grab the terrace lounge</strong> — the best west-facing seats in the house.</li><li><strong>Stay for dinner</strong> — our farm-to-table menu follows the sunset.</li><li><strong>Sunday Sundowner</strong> — join our weekly golden-hour session.</li></ol>',
             'is_published' => true,
             'published_at' => now()->subDays(2),
         ]);

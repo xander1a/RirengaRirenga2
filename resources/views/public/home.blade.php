@@ -56,16 +56,12 @@
 <section class="py-24 px-4">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1fr] gap-16 items-center">
         <div data-reveal>
-            <div class="flex items-center gap-4 mb-6">
-                <span class="ed-index">01</span>
-                <span class="ed-kicker">Our Story</span>
-            </div>
             <h2 class="ed-title" style="font-size:clamp(2rem,4vw,3.25rem);">
                 {{ __('home.intro_title') }}
             </h2>
             <p class="ed-lede mt-7">{{ __('home.intro_body') }}</p>
             <a href="{{ route('about') }}" class="ed-arrow mt-8">
-                Learn our story
+                Learn more
                 <svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
         </div>
@@ -92,20 +88,19 @@
 <section class="py-24 px-4" style="background-color:#1E3A4A;">
     <div class="max-w-7xl mx-auto">
         <div class="max-w-2xl mb-16">
-            <span class="ed-kicker ed-kicker--light">The Experience</span>
             <h2 class="ed-title ed-title--light mt-5" style="font-size:clamp(2rem,4vw,3.25rem);">{{ __('home.amenities_title') }}</h2>
         </div>
 
         <div class="space-y-20 lg:space-y-28">
             @foreach([
                 ['key'=>'offer_stay', 'icon'=>'bed', 'eyebrow'=>'Stay', 'title'=>__('home.amenity_stay'),
-                 'desc'=>'5 self-contained rooms with private terraces, ensuite bathrooms, and forest views. Every stay includes dinner & breakfast prepared with local ingredients.',
+                 'desc'=>'5 self-contained rooms with private terraces, ensuite bathrooms, and sweeping city views. Every stay includes dinner & breakfast prepared with local ingredients.',
                  'cta'=>['label'=>'Explore Rooms', 'route'=>'rooms']],
                 ['key'=>'offer_dining', 'icon'=>'dish', 'eyebrow'=>'Taste', 'title'=>__('home.amenity_food'),
                  'desc'=>'Farm-to-table restaurant, craft cocktail bar, and curated beverages from Rwanda and beyond — enjoyed indoors or on the terrace overlooking the hills.',
                  'cta'=>['label'=>'View the Menu', 'route'=>'restaurant']],
-                ['key'=>'offer_hiking', 'icon'=>'mountain', 'eyebrow'=>'Explore', 'title'=>__('home.amenity_hike'),
-                 'desc'=>'Guided trails ranging from easy forest walks to challenging summit hikes — all starting right from our doorstep, led by local guides who know every path.',
+                ['key'=>'offer_hiking', 'icon'=>'sun', 'eyebrow'=>'Unwind', 'title'=>__('home.amenity_hike'),
+                 'desc'=>'End your day on the terrace as the sun sinks over Kigali\'s hills — golden light, cool evening air, and a drink in hand. Our west-facing lounge is made for unforgettable sunsets.',
                  'cta'=>['label'=>'Plan Your Visit', 'route'=>'contact']],
             ] as $i => $offer)
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" data-reveal>
@@ -248,7 +243,6 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div>
-                <span class="ed-kicker">Stories &amp; News</span>
                 <h2 class="ed-title mt-5" style="font-size:clamp(2rem,4vw,3rem);">{{ __('home.blog_title') }}</h2>
             </div>
             <a href="{{ route('blog') }}" class="ed-arrow">

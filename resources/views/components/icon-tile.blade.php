@@ -51,6 +51,11 @@
                 <path d="M3 13h18"/>
                 <circle cx="7" cy="10" r="1.5"/>
                 @break
+            @case('sun')
+                <circle cx="12" cy="13" r="3.5"/>
+                <path d="M12 4v2M12 20h.01M4 13h1.5M18.5 13H20M6.3 7.3l1 1M16.7 7.3l-1 1"/>
+                <path d="M3 20h18"/>
+                @break
             @default
                 <path d="M5 21c8-1 13-6 14-14-8 1-13 6-14 14Z"/>
         @endswitch

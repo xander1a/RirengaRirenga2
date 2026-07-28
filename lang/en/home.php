@@ -1,17 +1,17 @@
 <?php
 
 return [
-    'hero_title'    => 'Escape to Nature\'s Embrace',
-    'hero_subtitle' => 'A sustainable eco-lodge in the heart of Rwanda — where forest, comfort, and culture meet.',
+    'hero_title'    => 'Where the City Meets the Sunset',
+    'hero_subtitle' => 'A modern eco-lodge in the heart of Kigali — where design, comfort, and unforgettable sunsets meet.',
     'hero_cta'      => 'Book Your Stay',
     'intro_title'   => 'Welcome to Rirenga',
-    'intro_body'    => 'Nestled in the lush hills of Rwanda, Rirenga offers five beautifully appointed rooms, a celebrated restaurant, and a vibrant bar — all within a setting that honours the land and its people.',
+    'intro_body'    => 'Set on the green hills of Kigali, Rirenga is a modern eco-lodge with five beautifully appointed rooms, a celebrated restaurant, and a vibrant bar — all framed by sweeping city views that glow at the end of the day.',
     'rooms_title'   => 'Our Rooms',
-    'rooms_sub'     => 'Every room includes dinner & breakfast, and is your private sanctuary in the forest.',
+    'rooms_sub'     => 'Every room includes dinner & breakfast, and is your private retreat above the city.',
     'amenities_title'    => 'What We Offer',
     'amenity_stay'       => 'Accommodation',
     'amenity_food'       => 'Food & Drinks',
-    'amenity_hike'       => 'Hiking Experiences',
+    'amenity_hike'       => 'Sunset Views',
     'restaurant_title'   => 'Farm-to-Table Dining',
     'restaurant_body'    => 'Our chef celebrates Rwandan ingredients with a seasonal menu that blends local tradition and contemporary technique.',
     'bar_title'          => 'The Rirenga Bar',

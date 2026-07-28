@@ -1,17 +1,17 @@
 <?php
 
 return [
-    'hero_title'    => 'Évadez-vous dans les Bras de la Nature',
-    'hero_subtitle' => 'Un éco-lodge durable au cœur du Rwanda — où forêt, confort et culture se rencontrent.',
+    'hero_title'    => 'Là où la Ville Rencontre le Coucher du Soleil',
+    'hero_subtitle' => 'Un éco-lodge moderne au cœur de Kigali — où design, confort et couchers de soleil inoubliables se rencontrent.',
     'hero_cta'      => 'Réserver votre Séjour',
     'intro_title'   => 'Bienvenue à Rirenga',
-    'intro_body'    => 'Niché dans les collines luxuriantes du Rwanda, Rirenga offre cinq chambres magnifiques, un restaurant réputé et un bar animé — dans un cadre qui honore la terre et ses habitants.',
+    'intro_body'    => 'Situé sur les collines verdoyantes de Kigali, Rirenga est un éco-lodge moderne offrant cinq chambres magnifiques, un restaurant réputé et un bar animé — le tout sublimé par de vastes vues sur la ville qui s\'embrasent en fin de journée.',
     'rooms_title'   => 'Nos Chambres',
-    'rooms_sub'     => 'Chaque chambre comprend le dîner et le petit-déjeuner, et est votre sanctuaire privé dans la forêt.',
+    'rooms_sub'     => 'Chaque chambre comprend le dîner et le petit-déjeuner, et est votre refuge privé au-dessus de la ville.',
     'amenities_title'    => 'Ce Que Nous Offrons',
     'amenity_stay'       => 'Hébergement',
     'amenity_food'       => 'Nourriture & Boissons',
-    'amenity_hike'       => 'Randonnées',
+    'amenity_hike'       => 'Couchers de Soleil',
     'restaurant_title'   => 'Cuisine de la Ferme à la Table',
     'restaurant_body'    => 'Notre chef célèbre les ingrédients rwandais avec un menu saisonnier alliant tradition locale et technique contemporaine.',
     'bar_title'          => 'Le Bar Rirenga',

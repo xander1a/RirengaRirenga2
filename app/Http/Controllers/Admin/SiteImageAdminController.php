@@ -21,7 +21,7 @@ class SiteImageAdminController extends Controller
         'story_4'         => ['Home — Our Story photo 4', 'Bottom-right photo in the Our Story grid', '800×800'],
         'offer_stay'      => ['Home — What We Offer: Accommodation', 'Photo beside the Accommodation text', '1200×800'],
         'offer_dining'    => ['Home — What We Offer: Food & Drinks', 'Photo beside the Food & Drinks text', '1200×800'],
-        'offer_hiking'    => ['Home — What We Offer: Hiking', 'Photo beside the Hiking Experiences text', '1200×800'],
+        'offer_hiking'    => ['Home — What We Offer: Sunset Views', 'Photo beside the Sunset Views text', '1200×800'],
         'dining_2'        => ['Home — Dining photo', 'Second photo in the restaurant teaser', '800×1000'],
         'bar_1'           => ['Home — Bar photo', 'First photo in the bar teaser', '800×1000'],
         'rooms_hero'      => ['Rooms page — Header', 'Banner behind the Rooms page title', '1920×600'],

@@ -18,7 +18,7 @@ class PasswordOtpMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Your BYIZA Eco-lodge password reset code');
+        return new Envelope(subject: 'Your Rirenga Eco-Lodge password reset code');
     }
 
     public function content(): Content
